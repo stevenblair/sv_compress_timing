@@ -99,12 +99,12 @@ unsigned int next_free_buf = 0;
 //unsigned int next_emptiable_buf = 0;
 
 unsigned sv_delay_flag = 0;
-static int tile_timer_offset;
 timer sv_timer;
 unsigned sv_send_ts = 0;
 unsigned sv_recv_ts = 0;
 unsigned sv_encode_ts = 0;
 unsigned sv_ASDU_5_ts = 0;
+unsigned sv_prev_ASDU_ts = 0;
 
 unsigned ASDU = 0;
 unsigned t0 = 0;
@@ -130,7 +130,8 @@ unsigned get_local_time() {
 //}
 
 #pragma select handler
-void sv_recv_and_process_packet(chanend c_rx, chanend c_tx) {
+void sv_recv_and_process_packet(chanend c_rx) {
+    xscope_int(RECV_FLAG, 1);
 
       safe_mac_rx_timed(c_rx,
                        (delay_buffer[next_free_buf].buf, unsigned char[]),
@@ -151,6 +152,7 @@ void sv_recv_and_process_packet(chanend c_rx, chanend c_tx) {
           next_free_buf = 0;
       }
 
+      xscope_int(RECV_FLAG, 0);
 
 //      if (delay_flag) {
 //          xscope_int(DELAY_FLAG, 0);
@@ -169,26 +171,32 @@ void sv_recv_and_process_packet(chanend c_rx, chanend c_tx) {
 //      }
 }
 
-unsigned sv_send_frame(chanend c_tx) {
+unsigned sv_send_frame(chanend c_tx, int tile_timer_offset) {
     unsigned next_delay = SV_DELAY_FLAG_PERIODIC_TIME_14400_HZ;
+
 
     if (ASDU == 0) {
         t0 = get_local_time();
     }
+//    else if (ASDU == 5) {
+//    }
+    xscope_int(ASDU_5_TIME, (get_local_time() - sv_prev_ASDU_ts) / 100);
+
+    sv_prev_ASDU_ts = get_local_time();
 
 //    unsigned int sentTime;
     int len = 0;
 
-    set_values();
+    // TODO precompute waveform
+//    set_values();
 //    if (ASDU == 5) {
 //        sv_encode_ts = get_local_time();
 //    }
-    len = proxy_sv_update_LE_IED_MUnn_MSVCB01((send_buf, unsigned char[]));
-    if (ASDU == 5) {
+    len = proxy_sv_update_LE_IED_MUnn_MSVCB01_compress((send_buf, unsigned char[]));
+//    if (ASDU == 5) {
 //        sv_encode_ts = get_local_time() - sv_encode_ts;
 //        xscope_int(SV_ENCODE_TIME, sv_encode_ts / 100);
-        xscope_int(ASDU_5_TIME, (get_local_time() - t0) / 100);
-    }
+//    }
 
     ASDU++;
 
@@ -203,51 +211,70 @@ unsigned sv_send_frame(chanend c_tx) {
     if (len > 0) {
         mac_tx_timed(c_tx, send_buf, len, sv_send_ts, 0);                 // TODO check interface number
         td = sv_send_ts;
-        ASDU = 0;
 
 //        debug_printf("sent %d bytes on port %d, ts: %d\n", len, 0, sv_send_ts);
 
         xscope_int(FRAME_DELAY, (td - (t0 + tile_timer_offset)) / 100);
 
+    }
+
+    if (ASDU >= 5) {
+        ASDU = 0;
         next_delay = SV_DELAY_FLAG_PERIODIC_TIME_REMAINDER_OF_CYCLE;
     }
 
     return next_delay;
 }
 
-void sv_timing(chanend c_rx, chanend c_tx) {
+void sv_timing_tx(chanend c_tx, chanend share_tile_timer_offset) {
   timer sv_delay_flag_timer;
   unsigned int sv_delay_flag_timeout;
-
-  // TODO use tile offset value
-  mac_get_tile_timer_offset(c_rx, tile_timer_offset);
-//  debug_printf("tile_timer_offset: %d, local time: %d\n", tile_timer_offset, get_local_time());
+  static int tile_timer_offset = -79802;
 
   proxy_initialise_iec61850();
-
-//  mac_set_custom_filter(c_rx, MAC_FILTER_PTP);
-  mac_set_custom_filter(c_rx, 0x0001);
 
   while (1) {
     [[ordered]]
     select {
         case sv_delay_flag_timer when timerafter(sv_delay_flag_timeout) :> void:
             xscope_int(DELAY_FLAG, 1);
-            unsigned next_delay = sv_send_frame(c_tx);
+            unsigned next_delay = sv_send_frame(c_tx, tile_timer_offset);
 //            sv_delay_flag = 1;
 //            xscope_int(DELAY_FLAG, 1);
             sv_delay_flag_timeout += next_delay;
             xscope_int(DELAY_FLAG, 0);
             break;
-        case sv_recv_and_process_packet(c_rx, c_tx):
+        case share_tile_timer_offset :> tile_timer_offset:
+//            sv_delay_flag_timeout = i;
+            debug_printf("got tile_timer_offset: %d\n", tile_timer_offset);
+//            printintln(i);
+            break;
+        }
+    }
+}
+
+void sv_timing_rx(chanend c_rx, chanend share_tile_timer_offset) {
+    int tile_timer_offset = 0;
+
+    mac_get_tile_timer_offset(c_rx, tile_timer_offset);
+    share_tile_timer_offset <: tile_timer_offset;
+  //  debug_printf("tile_timer_offset: %d, local time: %d\n", tile_timer_offset, get_local_time());
+
+  mac_set_custom_filter(c_rx, 0x0001);
+
+  while (1) {
+    [[ordered]]
+    select {
+        case sv_recv_and_process_packet(c_rx):
             break;
       }
-  }
+   }
 }
 
 int main()
 {
   chan c_mac_rx[1], c_mac_tx[1];
+  chan share_tile_timer_offset;
 
   par
   {
@@ -266,10 +293,8 @@ int main()
                                     c_mac_tx, 1);
     }
 
-//    on stdcore[0]: delay_server(c_mac_rx[0], c_mac_tx[0]);
-
-    // TODO split tx and rx into seperate threads?
-    on stdcore[0]: sv_timing(c_mac_rx[0], c_mac_tx[0]);
+    on stdcore[1]: sv_timing_tx(c_mac_tx[0], share_tile_timer_offset);
+//    on stdcore[0]: sv_timing_rx(c_mac_rx[0], share_tile_timer_offset);
 //    on tile[1]: sv_timing(c_mac_rx[0], c_mac_tx[0]);
   }
 

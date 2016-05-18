@@ -104,6 +104,7 @@ timer sv_timer;
 unsigned sv_send_ts = 0;
 unsigned sv_recv_ts = 0;
 unsigned sv_encode_ts = 0;
+unsigned sv_ASDU_5_ts = 0;
 
 unsigned ASDU = 0;
 unsigned t0 = 0;
@@ -143,7 +144,7 @@ void sv_recv_and_process_packet(chanend c_rx, chanend c_tx) {
 //      debug_printf("recv %d bytes on port %d, ts: %d\n", delay_buffer[next_free_buf].len, delay_buffer[next_free_buf].src_port, sv_recv_ts);
 //      debug_printf("  ts diff: %d us\n", (sv_recv_ts - sv_send_ts) / 100);
 
-      xscope_int(TIME_DIFF_SEND_RECV, (sv_recv_ts - sv_send_ts) / 100);
+//      xscope_int(TIME_DIFF_SEND_RECV, (sv_recv_ts - sv_send_ts) / 100);
 
       next_free_buf++;
       if (next_free_buf >= MAX_BUF_LENGTH) {
@@ -179,13 +180,14 @@ unsigned sv_send_frame(chanend c_tx) {
     int len = 0;
 
     set_values();
+//    if (ASDU == 5) {
+//        sv_encode_ts = get_local_time();
+//    }
+    len = proxy_sv_update_LE_IED_MUnn_MSVCB01((send_buf, unsigned char[]));
     if (ASDU == 5) {
-        sv_encode_ts = get_local_time();
-    }
-    len = proxy_sv_update_LE_IED_MUnn_MSVCB01_compress((send_buf, unsigned char[]));
-    if (ASDU == 5) {
-        sv_encode_ts = get_local_time() - sv_encode_ts;
-        xscope_int(SV_ENCODE_TIME, sv_encode_ts / 100);
+//        sv_encode_ts = get_local_time() - sv_encode_ts;
+//        xscope_int(SV_ENCODE_TIME, sv_encode_ts / 100);
+        xscope_int(ASDU_5_TIME, (get_local_time() - t0) / 100);
     }
 
     ASDU++;
@@ -230,10 +232,12 @@ void sv_timing(chanend c_rx, chanend c_tx) {
     [[ordered]]
     select {
         case sv_delay_flag_timer when timerafter(sv_delay_flag_timeout) :> void:
+            xscope_int(DELAY_FLAG, 1);
             unsigned next_delay = sv_send_frame(c_tx);
 //            sv_delay_flag = 1;
 //            xscope_int(DELAY_FLAG, 1);
             sv_delay_flag_timeout += next_delay;
+            xscope_int(DELAY_FLAG, 0);
             break;
         case sv_recv_and_process_packet(c_rx, c_tx):
             break;

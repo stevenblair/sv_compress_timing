@@ -20,9 +20,11 @@
     <!-- <Probe name="Probe Name" type="CONTINUOUS" datatype="UINT" units="Value" enabled="true"/> -->
     <!-- From the target code, call: xscope_int(PROBE_NAME, value); -->
     
-    <Probe name="SV_ENCODE_TIME" type="CONTINUOUS" datatype="INT" units="Value" enabled="true"/>
+    <!-- <Probe name="SV_ENCODE_TIME" type="CONTINUOUS" datatype="INT" units="Value" enabled="true"/>
+    <Probe name="TIME_DIFF_SEND_RECV" type="CONTINUOUS" datatype="INT" units="Value" enabled="true"/> -->
     <Probe name="FRAME_DELAY" type="CONTINUOUS" datatype="INT" units="Value" enabled="true"/>
-    <Probe name="TIME_DIFF_SEND_RECV" type="CONTINUOUS" datatype="INT" units="Value" enabled="true"/>
+    <Probe name="ASDU_5_TIME" type="CONTINUOUS" datatype="INT" units="Value" enabled="true"/>
+    <Probe name="DELAY_FLAG" type="CONTINUOUS" datatype="INT" units="Value" enabled="true"/>
     
     <!--<Probe name="IN_BYTE_COUNTER" type="CONTINUOUS" datatype="INT" units="Value" enabled="true"/>
     <Probe name="OUT_BYTE_COUNTER" type="CONTINUOUS" datatype="INT" units="Value" enabled="true"/>

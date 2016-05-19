@@ -24,6 +24,7 @@
     <Probe name="TIME_DIFF_SEND_RECV" type="CONTINUOUS" datatype="INT" units="Value" enabled="true"/> -->
     <Probe name="FRAME_DELAY" type="CONTINUOUS" datatype="INT" units="Value" enabled="true"/>
     <Probe name="ASDU_5_TIME" type="CONTINUOUS" datatype="INT" units="Value" enabled="true"/>
+    <Probe name="ASDU_MONITOR" type="CONTINUOUS" datatype="INT" units="Value" enabled="true"/>
     <Probe name="DELAY_FLAG" type="CONTINUOUS" datatype="INT" units="Value" enabled="true"/>
     <Probe name="RECV_FLAG" type="CONTINUOUS" datatype="INT" units="Value" enabled="true"/>
     

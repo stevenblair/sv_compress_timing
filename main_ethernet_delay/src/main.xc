@@ -77,6 +77,7 @@ on tile[1]: mii_interface_t mii2 = {
 #define MAX_DELAY_MESG_LENGTH   1024        // TODO define max packet size
 #define MAX_BUF_LENGTH  16
 
+#define INTERFACE_TX    0
 
 
 
@@ -173,22 +174,21 @@ void sv_recv_and_process_packet(chanend c_rx) {
 
 unsigned sv_send_frame(chanend c_tx, int tile_timer_offset) {
     unsigned next_delay = SV_DELAY_FLAG_PERIODIC_TIME_14400_HZ;
-
+    xscope_int(ASDU_MONITOR, ASDU);
 
     if (ASDU == 0) {
         t0 = get_local_time();
     }
 //    else if (ASDU == 5) {
 //    }
-    xscope_int(ASDU_5_TIME, (get_local_time() - sv_prev_ASDU_ts) / 100);
 
-    sv_prev_ASDU_ts = get_local_time();
+//    sv_prev_ASDU_ts = get_local_time();
 
 //    unsigned int sentTime;
     int len = 0;
 
     // TODO precompute waveform
-//    set_values();
+    set_values(ASDU);
 //    if (ASDU == 5) {
 //        sv_encode_ts = get_local_time();
 //    }
@@ -198,7 +198,6 @@ unsigned sv_send_frame(chanend c_tx, int tile_timer_offset) {
 //        xscope_int(SV_ENCODE_TIME, sv_encode_ts / 100);
 //    }
 
-    ASDU++;
 
 //    debug_printf("len: %d bytes\n", len);
 //    if (len > 0) {
@@ -209,18 +208,20 @@ unsigned sv_send_frame(chanend c_tx, int tile_timer_offset) {
 //    }
 
     if (len > 0) {
-        mac_tx_timed(c_tx, send_buf, len, sv_send_ts, 0);                 // TODO check interface number
+        mac_tx_timed(c_tx, send_buf, len, sv_send_ts, INTERFACE_TX);
         td = sv_send_ts;
 
 //        debug_printf("sent %d bytes on port %d, ts: %d\n", len, 0, sv_send_ts);
 
-        xscope_int(FRAME_DELAY, (td - (t0 + tile_timer_offset)) / 100);
-
+        //        xscope_int(FRAME_DELAY, ((td - tile_timer_offset) - (t0)) / 100);
+        xscope_int(FRAME_DELAY, ((td - 0) - (t0)) / 100);
     }
 
-    if (ASDU >= 5) {
+    ASDU++;
+    if (ASDU > 5) {
         ASDU = 0;
         next_delay = SV_DELAY_FLAG_PERIODIC_TIME_REMAINDER_OF_CYCLE;
+        xscope_int(ASDU_5_TIME, (get_local_time() - t0) / 100);
     }
 
     return next_delay;
@@ -293,8 +294,9 @@ int main()
                                     c_mac_tx, 1);
     }
 
+    // TODO possible to transmit on two interface (one compressed, one not), and receive on a third?
     on stdcore[1]: sv_timing_tx(c_mac_tx[0], share_tile_timer_offset);
-//    on stdcore[0]: sv_timing_rx(c_mac_rx[0], share_tile_timer_offset);
+    on stdcore[0]: sv_timing_rx(c_mac_rx[0], share_tile_timer_offset);
 //    on tile[1]: sv_timing(c_mac_rx[0], c_mac_tx[0]);
   }
 

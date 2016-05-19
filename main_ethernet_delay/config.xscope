@@ -32,6 +32,7 @@
     <Probe name="ASDU_4_ENCODE_TIME" type="CONTINUOUS" datatype="INT" units="Value" enabled="true"/>
     <Probe name="ASDU_5_ENCODE_TIME" type="CONTINUOUS" datatype="INT" units="Value" enabled="true"/>
     <Probe name="RECV_FLAG" type="CONTINUOUS" datatype="INT" units="Value" enabled="true"/>
+    <Probe name="DECODE_TIME" type="CONTINUOUS" datatype="INT" units="Value" enabled="true"/>
     
     <!--<Probe name="IN_BYTE_COUNTER" type="CONTINUOUS" datatype="INT" units="Value" enabled="true"/>
     <Probe name="OUT_BYTE_COUNTER" type="CONTINUOUS" datatype="INT" units="Value" enabled="true"/>

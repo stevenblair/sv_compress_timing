@@ -92,3 +92,11 @@ int proxy_sv_update_LE_IED_MUnn_MSVCB01_compress(unsigned char bufOut[]) {
 int proxy_sv_update_LE_IED_MUnn_MSVCB01(unsigned char bufOut[]) {
     return sv_update_LE_IED_MUnn_MSVCB01(bufOut);
 }
+
+void proxy_svDecode_compress(unsigned char bufOut[], int lenOut) {
+    svDecode_compress(bufOut, lenOut);
+}
+
+void proxy_svDecode(unsigned char bufOut[], int lenOut) {
+    svDecode(bufOut, lenOut);
+}

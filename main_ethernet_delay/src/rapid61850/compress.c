@@ -557,6 +557,7 @@ int svDecodeASDU_compress(unsigned char *buf, int len, int noASDU, int prev_smpC
     return smpCnt;
 }
 
+#pragma stackfunction 100
 void svDecodeAPDU_compress(unsigned char *buf, int len, unsigned int ASDU, unsigned int totalASDUs) {
 	unsigned char tag = (unsigned char) buf[0];	// assumes only one byte is used
 	int lengthFieldSize = getLengthFieldSize((unsigned char) buf[1]);

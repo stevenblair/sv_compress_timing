@@ -79,6 +79,8 @@ on tile[1]: mii_interface_t mii2 = {
 
 #define INTERFACE_TX    0
 
+#define GET_SHARED_GLOBAL(x, g) asm volatile("ldw %0, dp[" #g "]":"=r"(x)::"memory")
+#define SET_SHARED_GLOBAL(g, v) asm volatile("stw %0, dp[" #g "]"::"r"(v):"memory")
 
 
 typedef struct delay_buf {
@@ -110,6 +112,7 @@ unsigned sv_prev_ASDU_ts = 0;
 unsigned ASDU = 0;
 unsigned t0 = 0;
 unsigned td = 0;
+unsigned t0_for_recv = 0;
 
 unsigned get_local_time() {
     unsigned t;
@@ -131,8 +134,8 @@ unsigned get_local_time() {
 //}
 
 #pragma select handler
-void sv_recv_and_process_packet(chanend c_rx) {
-    xscope_int(RECV_FLAG, 1);
+void sv_recv_and_process_packet(chanend c_rx, volatile unsigned * unsafe t0_for_recv_ptr, int tile_timer_offset) {
+//    xscope_int(RECV_FLAG, 1);
 
       safe_mac_rx_timed(c_rx,
                        (delay_buffer[next_free_buf].buf, unsigned char[]),
@@ -146,14 +149,17 @@ void sv_recv_and_process_packet(chanend c_rx) {
 //      debug_printf("recv %d bytes on port %d, ts: %d\n", delay_buffer[next_free_buf].len, delay_buffer[next_free_buf].src_port, sv_recv_ts);
 //      debug_printf("  ts diff: %d us\n", (sv_recv_ts - sv_send_ts) / 100);
 
-//      xscope_int(TIME_DIFF_SEND_RECV, (sv_recv_ts - sv_send_ts) / 100);
+      unsafe {
+          xscope_int(RECV_FLAG, (sv_recv_ts - (*t0_for_recv_ptr + tile_timer_offset)) / 100);
+          debug_printf("sv_recv_ts: %d, *t0_for_recv_ptr: %d, tile_timer_offset: %d\n", sv_recv_ts, *t0_for_recv_ptr, tile_timer_offset);
+      }
 
       next_free_buf++;
       if (next_free_buf >= MAX_BUF_LENGTH) {
           next_free_buf = 0;
       }
 
-      xscope_int(RECV_FLAG, 0);
+//      xscope_int(RECV_FLAG, 0);
 
 //      if (delay_flag) {
 //          xscope_int(DELAY_FLAG, 0);
@@ -172,13 +178,21 @@ void sv_recv_and_process_packet(chanend c_rx) {
 //      }
 }
 
-unsigned sv_send_frame(chanend c_tx, int tile_timer_offset) {
+typedef enum _SV_Mode {
+    NO_COMPRESSION = 0,
+    COMPRESSION = 1
+} SV_Mode;
+
+SV_Mode mode = NO_COMPRESSION;
+
+unsigned sv_send_frame(chanend c_tx, int tile_timer_offset, volatile unsigned * unsafe t0_for_recv_ptr) {
     unsigned next_delay = SV_DELAY_FLAG_PERIODIC_TIME_14400_HZ;
-    xscope_int(ASDU_MONITOR, ASDU);
+//    xscope_int(ASDU_MONITOR, ASDU);
 
     if (ASDU == 0) {
         t0 = get_local_time();
     }
+
 //    else if (ASDU == 5) {
 //    }
 
@@ -192,7 +206,12 @@ unsigned sv_send_frame(chanend c_tx, int tile_timer_offset) {
 //    if (ASDU == 5) {
 //        sv_encode_ts = get_local_time();
 //    }
-    len = proxy_sv_update_LE_IED_MUnn_MSVCB01_compress((send_buf, unsigned char[]));
+    if (mode == NO_COMPRESSION) {
+        len = proxy_sv_update_LE_IED_MUnn_MSVCB01((send_buf, unsigned char[]));
+    }
+    else {
+        len = proxy_sv_update_LE_IED_MUnn_MSVCB01_compress((send_buf, unsigned char[]));
+    }
 //    if (ASDU == 5) {
 //        sv_encode_ts = get_local_time() - sv_encode_ts;
 //        xscope_int(SV_ENCODE_TIME, sv_encode_ts / 100);
@@ -206,6 +225,30 @@ unsigned sv_send_frame(chanend c_tx, int tile_timer_offset) {
 //    else {
 //        debug_printf("len == 0 bytes\n");
 //    }
+
+    switch (ASDU) {
+    case 0:
+        xscope_int(ASDU_0_ENCODE_TIME, (get_local_time() - t0) / 100);
+        unsafe {
+            *t0_for_recv_ptr = t0;
+        }
+        break;
+    case 1:
+        xscope_int(ASDU_1_ENCODE_TIME, (get_local_time() - t0) / 100);
+        break;
+    case 2:
+        xscope_int(ASDU_2_ENCODE_TIME, (get_local_time() - t0) / 100);
+        break;
+    case 3:
+        xscope_int(ASDU_3_ENCODE_TIME, (get_local_time() - t0) / 100);
+        break;
+    case 4:
+        xscope_int(ASDU_4_ENCODE_TIME, (get_local_time() - t0) / 100);
+        break;
+    case 5:
+        xscope_int(ASDU_5_ENCODE_TIME, (get_local_time() - t0) / 100);
+        break;
+    }
 
     if (len > 0) {
         mac_tx_timed(c_tx, send_buf, len, sv_send_ts, INTERFACE_TX);
@@ -221,7 +264,13 @@ unsigned sv_send_frame(chanend c_tx, int tile_timer_offset) {
     if (ASDU > 5) {
         ASDU = 0;
         next_delay = SV_DELAY_FLAG_PERIODIC_TIME_REMAINDER_OF_CYCLE;
-        xscope_int(ASDU_5_TIME, (get_local_time() - t0) / 100);
+//        xscope_int(ASDU_5_TIME, (get_local_time() - t0) / 100);
+        if (mode == NO_COMPRESSION) {
+            mode = COMPRESSION;
+        }
+        else {
+            mode = NO_COMPRESSION;
+        }
     }
 
     return next_delay;
@@ -232,18 +281,23 @@ void sv_timing_tx(chanend c_tx, chanend share_tile_timer_offset) {
   unsigned int sv_delay_flag_timeout;
   static int tile_timer_offset = -79802;
 
+  volatile unsigned * unsafe t0_for_recv_ptr;
+  unsafe {
+      t0_for_recv_ptr = &t0_for_recv;
+  }
+
   proxy_initialise_iec61850();
 
   while (1) {
     [[ordered]]
     select {
         case sv_delay_flag_timer when timerafter(sv_delay_flag_timeout) :> void:
-            xscope_int(DELAY_FLAG, 1);
-            unsigned next_delay = sv_send_frame(c_tx, tile_timer_offset);
+//            xscope_int(DELAY_FLAG, 1);
+            unsigned next_delay = sv_send_frame(c_tx, tile_timer_offset, t0_for_recv_ptr);
 //            sv_delay_flag = 1;
 //            xscope_int(DELAY_FLAG, 1);
             sv_delay_flag_timeout += next_delay;
-            xscope_int(DELAY_FLAG, 0);
+//            xscope_int(DELAY_FLAG, 0);
             break;
         case share_tile_timer_offset :> tile_timer_offset:
 //            sv_delay_flag_timeout = i;
@@ -257,6 +311,11 @@ void sv_timing_tx(chanend c_tx, chanend share_tile_timer_offset) {
 void sv_timing_rx(chanend c_rx, chanend share_tile_timer_offset) {
     int tile_timer_offset = 0;
 
+    volatile unsigned * unsafe t0_for_recv_ptr;
+    unsafe {
+        t0_for_recv_ptr = &t0_for_recv;
+    }
+
     mac_get_tile_timer_offset(c_rx, tile_timer_offset);
     share_tile_timer_offset <: tile_timer_offset;
   //  debug_printf("tile_timer_offset: %d, local time: %d\n", tile_timer_offset, get_local_time());
@@ -266,8 +325,11 @@ void sv_timing_rx(chanend c_rx, chanend share_tile_timer_offset) {
   while (1) {
     [[ordered]]
     select {
-        case sv_recv_and_process_packet(c_rx):
+        case sv_recv_and_process_packet(c_rx, t0_for_recv_ptr, tile_timer_offset):
             break;
+//        case share_t0 :> t0_for_recv:
+//            debug_printf("got t0_for_recv: %d\n", t0_for_recv);
+//            break;
       }
    }
 }
@@ -294,7 +356,7 @@ int main()
                                     c_mac_tx, 1);
     }
 
-    // TODO possible to transmit on two interface (one compressed, one not), and receive on a third?
+    // TODO possible to transmit on two interfaces (one compressed, one not), and receive on a third?
     on stdcore[1]: sv_timing_tx(c_mac_tx[0], share_tile_timer_offset);
     on stdcore[0]: sv_timing_rx(c_mac_rx[0], share_tile_timer_offset);
 //    on tile[1]: sv_timing(c_mac_rx[0], c_mac_tx[0]);

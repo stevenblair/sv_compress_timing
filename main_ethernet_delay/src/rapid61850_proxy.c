@@ -10,6 +10,7 @@
 #include <math.h>
 #include "iec61850.h"
 #include "compress.h"
+#include "rapid61850_proxy.h"
 //}
 
 #define TWO_PI              6.283185307179586476925286766559
@@ -24,9 +25,6 @@
 float phase = 0.0;
 float offset = 0.0;
 
-void proxy_initialise_iec61850() {
-    initialise_iec61850();
-}
 
 
 CTYPE_INT32 value[8][6] = {{0}};
@@ -61,6 +59,11 @@ void set_values(int ASDU) {
     LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_2.Amp.instMag.i = value[5][ASDU];
     LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_3.Amp.instMag.i = value[6][ASDU];
     LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_4.Amp.instMag.i = value[7][ASDU];
+}
+
+void proxy_initialise_iec61850() {
+    initialise_iec61850();
+    precompute_values();
 }
 
 //void set_values() {

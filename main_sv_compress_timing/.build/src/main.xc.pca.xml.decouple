@@ -128,6 +128,8 @@
     </values>
   </arg>
 </fCall>
+<fCall name="get_local_time_recv" global="true" numArgs="0">
+</fCall>
 <fCall name="xscope_int" global="true" numArgs="2">
   <arg num="0">
     <values>
@@ -140,7 +142,29 @@
     </values>
   </arg>
 </fCall>
-<fCall name="get_local_time_recv" global="true" numArgs="0">
+<fCall name="debug_printf" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="debug_printf" global="true" numArgs="3">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
 </fCall>
 <fCall name="get_local_time" global="true" numArgs="0">
 </fCall>
@@ -172,6 +196,8 @@
     </values>
   </arg>
 </fCall>
+<fCall name="get_local_time" global="true" numArgs="0">
+</fCall>
 <fCall name="xscope_int" global="true" numArgs="2">
   <arg num="0">
     <values>
@@ -183,8 +209,6 @@
       <value type="unknown"/>
     </values>
   </arg>
-</fCall>
-<fCall name="get_local_time" global="true" numArgs="0">
 </fCall>
 <fCall name="xscope_int" global="true" numArgs="2">
   <arg num="0">
@@ -198,8 +222,6 @@
     </values>
   </arg>
 </fCall>
-<fCall name="get_local_time" global="true" numArgs="0">
-</fCall>
 <fCall name="xscope_int" global="true" numArgs="2">
   <arg num="0">
     <values>
@@ -211,8 +233,6 @@
       <value type="unknown"/>
     </values>
   </arg>
-</fCall>
-<fCall name="get_local_time" global="true" numArgs="0">
 </fCall>
 <fCall name="xscope_int" global="true" numArgs="2">
   <arg num="0">
@@ -226,8 +246,6 @@
     </values>
   </arg>
 </fCall>
-<fCall name="get_local_time" global="true" numArgs="0">
-</fCall>
 <fCall name="xscope_int" global="true" numArgs="2">
   <arg num="0">
     <values>
@@ -240,8 +258,6 @@
     </values>
   </arg>
 </fCall>
-<fCall name="get_local_time" global="true" numArgs="0">
-</fCall>
 <fCall name="xscope_int" global="true" numArgs="2">
   <arg num="0">
     <values>
@@ -253,8 +269,6 @@
       <value type="unknown"/>
     </values>
   </arg>
-</fCall>
-<fCall name="get_local_time" global="true" numArgs="0">
 </fCall>
 <fCall name="mac_tx_timed" global="true" numArgs="5">
   <arg num="0">
@@ -290,6 +304,55 @@
     </values>
   </arg>
   <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="debug_printf" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="debug_printf" global="true" numArgs="8">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="3">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="4">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="5">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="6">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="7">
     <values>
       <value type="unknown"/>
     </values>

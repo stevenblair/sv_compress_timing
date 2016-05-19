@@ -1,3 +1,5 @@
+#define PRINT_TIMING_RESULTS    0
+
 #include <xs1.h>
 #include <xclib.h>
 #include <print.h>
@@ -86,6 +88,8 @@ unsigned t0 = 0;
 unsigned td = 0;
 unsigned t0_for_recv = 0;
 
+unsigned ASDU_encode_time[6] = {0};
+
 
 unsigned get_local_time() {
     unsigned t;
@@ -97,43 +101,6 @@ unsigned get_local_time_recv() {
     unsigned t;
     sv_timer_recv :> t;
     return t;
-}
-
-#pragma select handler
-void sv_recv_and_process_packet(chanend c_rx, int tile_timer_offset) {
-    unsigned local_t0 = 0;
-
-    safe_mac_rx_timed(c_rx,
-            (delay_buffer[next_free_buf].buf, unsigned char[]),
-            delay_buffer[next_free_buf].len,
-            delay_buffer[next_free_buf].rx_ts,
-            delay_buffer[next_free_buf].src_port,
-            MAX_DELAY_MESG_LENGTH);
-
-    sv_recv_ts = delay_buffer[next_free_buf].rx_ts;
-
-    //      debug_printf("recv %d bytes on port %d, ts: %d\n", delay_buffer[next_free_buf].len, delay_buffer[next_free_buf].src_port, sv_recv_ts);
-
-    //          GET_SHARED_GLOBAL(local_t0_for_recv, t0_for_recv);
-    local_t0 = get_global_t0();
-    xscope_int(RECV_FLAG, (sv_recv_ts - (local_t0 + tile_timer_offset)) / 100);
-    //      debug_printf("sv_recv_ts: %d, local_t0_for_recv: %d, tile_timer_offset: %d\n", sv_recv_ts, local_t0_for_recv, tile_timer_offset);
-    //      debug_printf("  get_global(): %d\n", get_global());
-
-    if (sv_mode_recv == COMPRESSION) {
-        proxy_svDecode_compress((delay_buffer[next_free_buf].buf, unsigned char[]), delay_buffer[next_free_buf].len);
-        sv_mode_recv = NO_COMPRESSION;
-    }
-    else {
-        proxy_svDecode((delay_buffer[next_free_buf].buf, unsigned char[]), delay_buffer[next_free_buf].len);
-        sv_mode_recv = COMPRESSION;
-    }
-    xscope_int(DECODE_TIME, (get_local_time_recv() - local_t0) / 100);
-
-    next_free_buf++;
-    if (next_free_buf >= MAX_BUF_LENGTH) {
-        next_free_buf = 0;
-    }
 }
 
 
@@ -156,24 +123,26 @@ unsigned sv_send_frame(chanend c_tx, int tile_timer_offset) {
         len = proxy_sv_update_LE_IED_MUnn_MSVCB01_compress((send_buf, unsigned char[]));
     }
 
+    ASDU_encode_time[ASDU] = (get_local_time() - t0) / 100;
+
     switch (ASDU) {
     case 0:
-        xscope_int(ASDU_0_ENCODE_TIME, (get_local_time() - t0) / 100);
+        xscope_int(ASDU_0_ENCODE_TIME, ASDU_encode_time[ASDU]);
         break;
     case 1:
-        xscope_int(ASDU_1_ENCODE_TIME, (get_local_time() - t0) / 100);
+        xscope_int(ASDU_1_ENCODE_TIME, ASDU_encode_time[ASDU]);
         break;
     case 2:
-        xscope_int(ASDU_2_ENCODE_TIME, (get_local_time() - t0) / 100);
+        xscope_int(ASDU_2_ENCODE_TIME, ASDU_encode_time[ASDU]);
         break;
     case 3:
-        xscope_int(ASDU_3_ENCODE_TIME, (get_local_time() - t0) / 100);
+        xscope_int(ASDU_3_ENCODE_TIME, ASDU_encode_time[ASDU]);
         break;
     case 4:
-        xscope_int(ASDU_4_ENCODE_TIME, (get_local_time() - t0) / 100);
+        xscope_int(ASDU_4_ENCODE_TIME, ASDU_encode_time[ASDU]);
         break;
     case 5:
-        xscope_int(ASDU_5_ENCODE_TIME, (get_local_time() - t0) / 100);
+        xscope_int(ASDU_5_ENCODE_TIME, ASDU_encode_time[ASDU]);
         break;
     }
 
@@ -195,9 +164,69 @@ unsigned sv_send_frame(chanend c_tx, int tile_timer_offset) {
         else {
             sv_mode = NO_COMPRESSION;
         }
+
+#if PRINT_TIMING_RESULTS == 1
+        debug_printf("ASDU0 ASDU1 ASDU2 ASDU3 ASDU4 ASDU5 Send\n");
+        debug_printf("%d %d %d %d %d %d %d\n",
+                ASDU_encode_time[0],
+                ASDU_encode_time[1],
+                ASDU_encode_time[2],
+                ASDU_encode_time[3],
+                ASDU_encode_time[4],
+                ASDU_encode_time[5],
+                ((td - tile_timer_offset) - t0) / 100);
+#endif
     }
 
     return next_delay;
+}
+
+#pragma select handler
+void sv_recv_and_process_packet(chanend c_rx, int tile_timer_offset) {
+    unsigned local_t0 = 0;
+    unsigned recv_time = 0;
+    unsigned decode_time = 0;
+
+    safe_mac_rx_timed(c_rx,
+            (delay_buffer[next_free_buf].buf, unsigned char[]),
+            delay_buffer[next_free_buf].len,
+            delay_buffer[next_free_buf].rx_ts,
+            delay_buffer[next_free_buf].src_port,
+            MAX_DELAY_MESG_LENGTH);
+
+    sv_recv_ts = delay_buffer[next_free_buf].rx_ts;
+
+    //      debug_printf("recv %d bytes on port %d, ts: %d\n", delay_buffer[next_free_buf].len, delay_buffer[next_free_buf].src_port, sv_recv_ts);
+
+    //          GET_SHARED_GLOBAL(local_t0_for_recv, t0_for_recv);
+    local_t0 = get_global_t0();
+    recv_time = (sv_recv_ts - (local_t0 + tile_timer_offset)) / 100;
+    xscope_int(RECV_FLAG, recv_time);
+    //      debug_printf("sv_recv_ts: %d, local_t0_for_recv: %d, tile_timer_offset: %d\n", sv_recv_ts, local_t0_for_recv, tile_timer_offset);
+    //      debug_printf("  get_global(): %d\n", get_global());
+
+    if (sv_mode_recv == COMPRESSION) {
+        proxy_svDecode_compress((delay_buffer[next_free_buf].buf, unsigned char[]), delay_buffer[next_free_buf].len);
+        sv_mode_recv = NO_COMPRESSION;
+    }
+    else {
+        proxy_svDecode((delay_buffer[next_free_buf].buf, unsigned char[]), delay_buffer[next_free_buf].len);
+        sv_mode_recv = COMPRESSION;
+    }
+    decode_time = (get_local_time_recv() - local_t0) / 100;
+    xscope_int(DECODE_TIME, decode_time);
+
+    next_free_buf++;
+    if (next_free_buf >= MAX_BUF_LENGTH) {
+        next_free_buf = 0;
+    }
+
+#if PRINT_TIMING_RESULTS == 1
+    debug_printf("Recv Decode\n");
+    debug_printf("%d %d\n",
+            recv_time,
+            decode_time);
+#endif
 }
 
 void sv_timing_tx(chanend c_tx, chanend share_tile_timer_offset) {
@@ -261,7 +290,6 @@ int main()
                     c_mac_tx, 1);
         }
 
-        // TODO possible to transmit on two interfaces (one compressed, one not), and receive on a third?
         on stdcore[0]: sv_timing_tx(c_mac_tx[0], share_tile_timer_offset);
         on stdcore[0]: sv_timing_rx(c_mac_rx[0], share_tile_timer_offset);
         //    on tile[1]: sv_timing(c_mac_rx[0], c_mac_tx[0]);

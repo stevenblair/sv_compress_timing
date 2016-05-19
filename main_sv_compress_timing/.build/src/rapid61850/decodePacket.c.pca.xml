@@ -1,0 +1,12 @@
+<preCompilationAnalysis file="../src/rapid61850/decodePacket.c">
+  <fCall global="true" name="getLengthFieldSize"/>
+  <fCall global="true" name="getLengthFieldSize.nstackwords"/>
+  <fCall global="true" name="getLengthFieldSize.maxcores"/>
+  <fCall global="true" name="getLengthFieldSize.maxtimers"/>
+  <fCall global="true" name="getLengthFieldSize.maxchanends"/>
+  <fCall global="true" name="decodeLength"/>
+  <fCall global="true" name="decodeLength.nstackwords"/>
+  <fCall global="true" name="decodeLength.maxcores"/>
+  <fCall global="true" name="decodeLength.maxtimers"/>
+  <fCall global="true" name="decodeLength.maxchanends"/>
+</preCompilationAnalysis>

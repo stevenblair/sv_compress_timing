@@ -1,0 +1,13 @@
+<preCompilationAnalysis file="../src/global_t0.c">
+  <fCall global="true" name="set_global_t0"/>
+  <fCall global="true" name="set_global_t0.nstackwords"/>
+  <fCall global="true" name="set_global_t0.maxcores"/>
+  <fCall global="true" name="set_global_t0.maxtimers"/>
+  <fCall global="true" name="set_global_t0.maxchanends"/>
+  <fCall global="true" name="get_global_t0"/>
+  <fCall global="true" name="get_global_t0.nstackwords"/>
+  <fCall global="true" name="get_global_t0.maxcores"/>
+  <fCall global="true" name="get_global_t0.maxtimers"/>
+  <fCall global="true" name="get_global_t0.maxchanends"/>
+  <fCall global="true" name="global_t0"/>
+</preCompilationAnalysis>

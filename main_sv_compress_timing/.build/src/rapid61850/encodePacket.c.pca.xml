@@ -1,0 +1,17 @@
+<preCompilationAnalysis file="../src/rapid61850/encodePacket.c">
+  <fCall global="true" name="getLengthBytes"/>
+  <fCall global="true" name="getLengthBytes.nstackwords"/>
+  <fCall global="true" name="getLengthBytes.maxcores"/>
+  <fCall global="true" name="getLengthBytes.maxtimers"/>
+  <fCall global="true" name="getLengthBytes.maxchanends"/>
+  <fCall global="true" name="encodeLength"/>
+  <fCall global="true" name="encodeLength.nstackwords"/>
+  <fCall global="true" name="ENCODE_CTYPE_INT16U.nstackwords"/>
+  <fCall global="true" name="encodeLength.maxcores"/>
+  <fCall global="true" name="ENCODE_CTYPE_INT16U.maxcores"/>
+  <fCall global="true" name="encodeLength.maxtimers"/>
+  <fCall global="true" name="ENCODE_CTYPE_INT16U.maxtimers"/>
+  <fCall global="true" name="encodeLength.maxchanends"/>
+  <fCall global="true" name="ENCODE_CTYPE_INT16U.maxchanends"/>
+  <fCall global="true" name="ENCODE_CTYPE_INT16U"/>
+</preCompilationAnalysis>

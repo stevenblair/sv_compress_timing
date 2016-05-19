@@ -1,0 +1,13 @@
+<preCompilationAnalysis file="../src/global_sv_mode.c">
+  <fCall global="true" name="set_global_sv_mode"/>
+  <fCall global="true" name="set_global_sv_mode.nstackwords"/>
+  <fCall global="true" name="set_global_sv_mode.maxcores"/>
+  <fCall global="true" name="set_global_sv_mode.maxtimers"/>
+  <fCall global="true" name="set_global_sv_mode.maxchanends"/>
+  <fCall global="true" name="get_global_sv_mode"/>
+  <fCall global="true" name="get_global_sv_mode.nstackwords"/>
+  <fCall global="true" name="get_global_sv_mode.maxcores"/>
+  <fCall global="true" name="get_global_sv_mode.maxtimers"/>
+  <fCall global="true" name="get_global_sv_mode.maxchanends"/>
+  <fCall global="true" name="global_sv_mode"/>
+</preCompilationAnalysis>

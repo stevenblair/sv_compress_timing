@@ -1,0 +1,146 @@
+<preCompilationAnalysis file="C:/Users/nau03113/xmos142/module_otp_board_info/src/otp_board_info.xc">
+<fDef name="otp_board_info_get_header" global="false" unit="C:/Users/nau03113/xmos142/module_otp_board_info/src/otp_board_info.xc" noreturn="false" doNotSpecialize="false" numParams="2"/>
+<fDef name="otp_board_info_get_num_macs" global="false" unit="C:/Users/nau03113/xmos142/module_otp_board_info/src/otp_board_info.xc" noreturn="false" doNotSpecialize="false" numParams="1"/>
+<fDef name="otp_board_info_has_serial" global="false" unit="C:/Users/nau03113/xmos142/module_otp_board_info/src/otp_board_info.xc" noreturn="false" doNotSpecialize="false" numParams="1"/>
+<fDef name="otp_read_word" global="false" unit="C:/Users/nau03113/xmos142/module_otp_board_info/src/otp_board_info.xc" noreturn="false" doNotSpecialize="false" numParams="2"/>
+<fDef name="delay_microseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="delay_milliseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="delay_seconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="otp_board_info_get_mac" global="true" noreturn="false" doNotSpecialize="false" numParams="3"/>
+<fDef name="otp_board_info_get_serial" global="true" noreturn="false" doNotSpecialize="false" numParams="2"/>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_peek" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="otp_read_word" global="false" unit="C:/Users/nau03113/xmos142/module_otp_board_info/src/otp_board_info.xc" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="otp_board_info_get_header" global="false" unit="C:/Users/nau03113/xmos142/module_otp_board_info/src/otp_board_info.xc" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="otp_board_info_get_num_macs" global="false" unit="C:/Users/nau03113/xmos142/module_otp_board_info/src/otp_board_info.xc" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_byterev" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="otp_read_word" global="false" unit="C:/Users/nau03113/xmos142/module_otp_board_info/src/otp_board_info.xc" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_byterev" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="otp_read_word" global="false" unit="C:/Users/nau03113/xmos142/module_otp_board_info/src/otp_board_info.xc" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="otp_board_info_get_header" global="false" unit="C:/Users/nau03113/xmos142/module_otp_board_info/src/otp_board_info.xc" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="otp_board_info_has_serial" global="false" unit="C:/Users/nau03113/xmos142/module_otp_board_info/src/otp_board_info.xc" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="otp_board_info_get_num_macs" global="false" unit="C:/Users/nau03113/xmos142/module_otp_board_info/src/otp_board_info.xc" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="otp_read_word" global="false" unit="C:/Users/nau03113/xmos142/module_otp_board_info/src/otp_board_info.xc" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+</preCompilationAnalysis>

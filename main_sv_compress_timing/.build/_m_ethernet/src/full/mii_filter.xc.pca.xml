@@ -1,0 +1,340 @@
+<preCompilationAnalysis file="C:/Users/nau03113/xmos142/module_ethernet/src/full/mii_filter.xc">
+<fDef name="delay_microseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="delay_milliseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="delay_seconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="ethernet_filter" global="true" noreturn="true" doNotSpecialize="false" numParams="2"/>
+<fDef name="ethernet_get_filter_counts" global="true" noreturn="false" doNotSpecialize="false" numParams="4"/>
+<fDef name="mac_custom_filter" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mac_custom_filter_coerce1" global="true" noreturn="false" doNotSpecialize="false" numParams="2"/>
+<fDef name="mii_packet_get_crc" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_data_ptr" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_data_word" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_get_filter_result" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_forwarding" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_length" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_src_port" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_stage" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_tcount" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_timestamp" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_timestamp_id" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_user_data" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_set_crc" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_data" global="true" noreturn="false" doNotSpecialize="true" numParams="3"/>
+<fDef name="mii_packet_set_data_byte" global="true" noreturn="false" doNotSpecialize="true" numParams="3"/>
+<fDef name="mii_packet_set_data_short" global="true" noreturn="false" doNotSpecialize="true" numParams="3"/>
+<fDef name="mii_packet_set_data_word" global="true" noreturn="false" doNotSpecialize="true" numParams="3"/>
+<fDef name="mii_packet_set_filter_result" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_forwarding" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_length" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_src_port" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_stage" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_tcount" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_timestamp" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_timestamp_id" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_user_data" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_get_length" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_get_crc" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_get_data" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_crc8shr" global="true" numArgs="3">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_crc8shr" global="true" numArgs="3">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_crc8shr" global="true" numArgs="3">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_crc8shr" global="true" numArgs="3">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_crc8shr" global="true" numArgs="3">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_crc8shr" global="true" numArgs="3">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_set_src_port" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_set_filter_result" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="0"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_set_stage" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="1"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_set_filter_result" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="0"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_set_stage" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="1"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_get_data" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="0"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_get_data" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="0"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_get_data" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="1"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mac_custom_filter_coerce" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_set_timestamp_id" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="0"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_set_filter_result" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_set_stage" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="1"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mac_custom_filter" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+</preCompilationAnalysis>

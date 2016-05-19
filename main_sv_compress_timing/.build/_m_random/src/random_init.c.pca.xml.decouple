@@ -1,0 +1,7 @@
+<preCompilationAnalysis file="C:/Users/nau03113/xmos142/module_random/src/random_init.c">
+  <fCall global="true" name="random_simple_init_seed"/>
+  <fCall global="true" name="random_simple_init_seed.nstackwords"/>
+  <fCall global="true" name="random_simple_init_seed.maxcores"/>
+  <fCall global="true" name="random_simple_init_seed.maxtimers"/>
+  <fCall global="true" name="random_simple_init_seed.maxchanends"/>
+</preCompilationAnalysis>

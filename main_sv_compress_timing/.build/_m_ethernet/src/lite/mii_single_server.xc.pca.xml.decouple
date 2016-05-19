@@ -1,0 +1,259 @@
+<preCompilationAnalysis file="C:/Users/nau03113/xmos142/module_ethernet/src/lite/mii_single_server.xc">
+<fDef name="the_server" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/lite/mii_single_server.xc" noreturn="true" doNotSpecialize="false" numParams="7"/>
+<fDef name="delay_microseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="delay_milliseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="delay_seconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="ethernet_server_lite" global="true" noreturn="false" doNotSpecialize="false" numParams="7"/>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mac_set_macaddr_lite" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_buffer_init" global="true" numArgs="5">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <passThroughArg param="0" caller="the_server" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/lite/mii_single_server.xc"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="2">
+    <passThroughArg param="2" caller="the_server" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/lite/mii_single_server.xc"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="3">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="4">
+    <values>
+      <value type="intval"><intval isSigned="true" val="6400"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_out_init" global="true" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="1" caller="the_server" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/lite/mii_single_server.xc"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_timer_after" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="smi_check_link_state" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_out_uint" global="true" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="4" caller="the_server" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/lite/mii_single_server.xc"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="-1"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_in_uchar_byref" global="true" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="2" caller="the_server" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/lite/mii_single_server.xc"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_free_in_buffer" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_restart_buffer" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_get_in_buffer" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_out_uint" global="true" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="4" caller="the_server" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/lite/mii_single_server.xc"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_out_packet" global="true" numArgs="4">
+  <arg num="0">
+    <passThroughArg param="1" caller="the_server" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/lite/mii_single_server.xc"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="intval"><intval isSigned="true" val="0"/></value>
+    </values>
+  </arg>
+  <arg num="3">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_out_packet_done" global="true" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="1" caller="the_server" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/lite/mii_single_server.xc"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_get_in_buffer" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_out_uint" global="true" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="4" caller="the_server" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/lite/mii_single_server.xc"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_port_init" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_driver" global="true" numArgs="3">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="the_server" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/lite/mii_single_server.xc" numArgs="7" impId="0">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="3">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="4">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="5">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="6">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+</preCompilationAnalysis>

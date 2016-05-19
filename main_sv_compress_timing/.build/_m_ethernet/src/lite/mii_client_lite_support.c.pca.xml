@@ -1,0 +1,12 @@
+<preCompilationAnalysis file="C:/Users/nau03113/xmos142/module_ethernet/src/lite/mii_client_lite_support.c">
+  <fCall global="true" name="mac_set_macaddr_lite"/>
+  <fCall global="true" name="mac_set_macaddr_lite.nstackwords"/>
+  <fCall global="true" name="mac_set_macaddr_lite.maxcores"/>
+  <fCall global="true" name="mac_set_macaddr_lite.maxtimers"/>
+  <fCall global="true" name="mac_set_macaddr_lite.maxchanends"/>
+  <fCall global="true" name="mac_get_macaddr_lite"/>
+  <fCall global="true" name="mac_get_macaddr_lite.nstackwords"/>
+  <fCall global="true" name="mac_get_macaddr_lite.maxcores"/>
+  <fCall global="true" name="mac_get_macaddr_lite.maxtimers"/>
+  <fCall global="true" name="mac_get_macaddr_lite.maxchanends"/>
+</preCompilationAnalysis>

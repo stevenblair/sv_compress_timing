@@ -1,0 +1,193 @@
+<preCompilationAnalysis file="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_server.xc">
+<fDef name="delay_microseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="delay_milliseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="delay_seconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="ethernet_server_full_two_port" global="true" noreturn="false" doNotSpecialize="false" numParams="9"/>
+<fDef name="mii_packet_get_crc" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_data_ptr" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_data_word" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_get_filter_result" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_forwarding" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_length" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_src_port" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_stage" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_tcount" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_timestamp" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_timestamp_id" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_user_data" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_set_crc" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_data" global="true" noreturn="false" doNotSpecialize="true" numParams="3"/>
+<fDef name="mii_packet_set_data_byte" global="true" noreturn="false" doNotSpecialize="true" numParams="3"/>
+<fDef name="mii_packet_set_data_short" global="true" noreturn="false" doNotSpecialize="true" numParams="3"/>
+<fDef name="mii_packet_set_data_word" global="true" noreturn="false" doNotSpecialize="true" numParams="3"/>
+<fDef name="mii_packet_set_filter_result" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_forwarding" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_length" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_src_port" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_stage" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_tcount" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_timestamp" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_timestamp_id" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_user_data" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_init_full" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_init_full" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="init_mii_mem" global="true" numArgs="0">
+</fCall>
+<fCall name="mii_rx_pins_wr" global="true" numArgs="4" impId="0">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="intval"><intval isSigned="true" val="0"/></value>
+    </values>
+  </arg>
+  <arg num="3">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_tx_pins_wr" global="true" numArgs="2" impId="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="0"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_rx_pins_wr" global="true" numArgs="4" impId="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="intval"><intval isSigned="true" val="1"/></value>
+    </values>
+  </arg>
+  <arg num="3">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_tx_pins_wr" global="true" numArgs="2" impId="3">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="1"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="ethernet_tx_server_wr" global="true" numArgs="6" impId="4">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="intval"><intval isSigned="true" val="2"/></value>
+    </values>
+  </arg>
+  <arg num="3">
+    <passThroughArg param="8" caller="ethernet_server_full_two_port" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="4">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="5">
+    <values>
+      <value type="null"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="ethernet_rx_server_wr" global="true" numArgs="2" impId="5">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <passThroughArg param="6" caller="ethernet_server_full_two_port" global="true"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="ethernet_filter" global="true" numArgs="2" impId="6">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+</preCompilationAnalysis>

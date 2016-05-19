@@ -1,0 +1,12 @@
+<preCompilationAnalysis file="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_suppport.c">
+  <fCall global="true" name="mac_rx_send_frame"/>
+  <fCall global="true" name="mac_rx_send_frame.nstackwords"/>
+  <fCall global="true" name="mac_rx_send_frame0.nstackwords"/>
+  <fCall global="true" name="mac_rx_send_frame.maxcores"/>
+  <fCall global="true" name="mac_rx_send_frame0.maxcores"/>
+  <fCall global="true" name="mac_rx_send_frame.maxtimers"/>
+  <fCall global="true" name="mac_rx_send_frame0.maxtimers"/>
+  <fCall global="true" name="mac_rx_send_frame.maxchanends"/>
+  <fCall global="true" name="mac_rx_send_frame0.maxchanends"/>
+  <fCall global="true" name="mac_rx_send_frame0"/>
+</preCompilationAnalysis>

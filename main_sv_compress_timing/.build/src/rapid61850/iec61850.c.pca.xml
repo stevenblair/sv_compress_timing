@@ -1,0 +1,13 @@
+<preCompilationAnalysis file="../src/rapid61850/iec61850.c">
+  <fCall global="true" name="initialise_iec61850"/>
+  <fCall global="true" name="initialise_iec61850.nstackwords"/>
+  <fCall global="true" name="init_datatypes.nstackwords"/>
+  <fCall global="true" name="init_sv.nstackwords"/>
+  <fCall global="true" name="init_gse.nstackwords"/>
+  <fCall global="true" name="initialise_iec61850.maxcores"/>
+  <fCall global="true" name="initialise_iec61850.maxtimers"/>
+  <fCall global="true" name="initialise_iec61850.maxchanends"/>
+  <fCall global="true" name="init_datatypes"/>
+  <fCall global="true" name="init_sv"/>
+  <fCall global="true" name="init_gse"/>
+</preCompilationAnalysis>

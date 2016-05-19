@@ -1,0 +1,496 @@
+<preCompilationAnalysis file="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc">
+<fDef name="ethernet_unified_get_data" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc" noreturn="false" doNotSpecialize="false" numParams="7"/>
+<fDef name="get_tile_id_from_chanend" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="send_cmd" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc" noreturn="false" doNotSpecialize="false" numParams="2"/>
+<fDef name="delay_microseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="delay_milliseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="delay_seconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mac_get_global_counters" global="true" noreturn="false" doNotSpecialize="false" numParams="6"/>
+<fDef name="mac_get_link_counters" global="true" noreturn="false" doNotSpecialize="false" numParams="2"/>
+<fDef name="mac_get_tile_timer_offset" global="true" noreturn="false" doNotSpecialize="false" numParams="2"/>
+<fDef name="mac_request_status_packets" global="true" noreturn="false" doNotSpecialize="false" numParams="1"/>
+<fDef name="mac_rx_full" global="true" noreturn="false" doNotSpecialize="false" numParams="4"/>
+<fDef name="mac_rx_offset2" global="true" noreturn="false" doNotSpecialize="false" numParams="5"/>
+<fDef name="mac_rx_timed" global="true" noreturn="false" doNotSpecialize="false" numParams="5"/>
+<fDef name="mac_set_custom_filter" global="true" noreturn="false" doNotSpecialize="false" numParams="2"/>
+<fDef name="mac_set_drop_packets" global="true" noreturn="false" doNotSpecialize="false" numParams="2"/>
+<fDef name="mac_set_queue_size" global="true" noreturn="false" doNotSpecialize="false" numParams="2"/>
+<fDef name="mii_packet_get_crc" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_data_ptr" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_data_word" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_get_filter_result" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_forwarding" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_length" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_src_port" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_stage" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_tcount" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_timestamp" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_timestamp_id" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_user_data" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_set_crc" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_data" global="true" noreturn="false" doNotSpecialize="true" numParams="3"/>
+<fDef name="mii_packet_set_data_byte" global="true" noreturn="false" doNotSpecialize="true" numParams="3"/>
+<fDef name="mii_packet_set_data_short" global="true" noreturn="false" doNotSpecialize="true" numParams="3"/>
+<fDef name="mii_packet_set_data_word" global="true" noreturn="false" doNotSpecialize="true" numParams="3"/>
+<fDef name="mii_packet_set_filter_result" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_forwarding" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_length" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_src_port" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_stage" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_tcount" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_timestamp" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_timestamp_id" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_user_data" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="safe_mac_rx_full" global="true" noreturn="false" doNotSpecialize="false" numParams="5"/>
+<fDef name="safe_mac_rx_timed" global="true" noreturn="false" doNotSpecialize="false" numParams="6"/>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_inct" global="true" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="0" caller="ethernet_unified_get_data" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_out_uchar" global="true" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="0" caller="ethernet_unified_get_data" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="0"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_outct" global="true" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="0" caller="ethernet_unified_get_data" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="1"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_inct" global="true" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="0" caller="ethernet_unified_get_data" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_out_uint" global="true" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="0" caller="ethernet_unified_get_data" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <passThroughArg param="5" caller="ethernet_unified_get_data" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_outct" global="true" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="0" caller="ethernet_unified_get_data" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="1"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_chkct" global="true" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="0" caller="ethernet_unified_get_data" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="1"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_byterev" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="ethernet_unified_get_data" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc" numArgs="7">
+  <arg num="0">
+    <passThroughArg param="0" caller="mac_rx_full" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="3">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="4">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="5">
+    <values>
+      <value type="intval"><intval isSigned="false" val="2147483659"/></value>
+    </values>
+  </arg>
+  <arg num="6">
+    <values>
+      <value type="intval"><intval isSigned="true" val="-1"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="ethernet_unified_get_data" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc" numArgs="7">
+  <arg num="0">
+    <passThroughArg param="0" caller="mac_rx_offset2" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="3">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="4">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="5">
+    <values>
+      <value type="intval"><intval isSigned="false" val="2147483668"/></value>
+    </values>
+  </arg>
+  <arg num="6">
+    <values>
+      <value type="intval"><intval isSigned="true" val="-1"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="ethernet_unified_get_data" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc" numArgs="7">
+  <arg num="0">
+    <passThroughArg param="0" caller="safe_mac_rx_full" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="3">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="4">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="5">
+    <values>
+      <value type="intval"><intval isSigned="false" val="2147483659"/></value>
+    </values>
+  </arg>
+  <arg num="6">
+    <passThroughArg param="4" caller="safe_mac_rx_full" global="true"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="ethernet_unified_get_data" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc" numArgs="7">
+  <arg num="0">
+    <passThroughArg param="0" caller="mac_rx_timed" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="3">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="4">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="5">
+    <values>
+      <value type="intval"><intval isSigned="false" val="2147483659"/></value>
+    </values>
+  </arg>
+  <arg num="6">
+    <values>
+      <value type="intval"><intval isSigned="true" val="-1"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="ethernet_unified_get_data" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc" numArgs="7">
+  <arg num="0">
+    <passThroughArg param="0" caller="safe_mac_rx_timed" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="3">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="4">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="5">
+    <values>
+      <value type="intval"><intval isSigned="false" val="2147483659"/></value>
+    </values>
+  </arg>
+  <arg num="6">
+    <passThroughArg param="5" caller="safe_mac_rx_timed" global="true"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_out_uchar" global="true" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="0" caller="send_cmd" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="1"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_outct" global="true" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="0" caller="send_cmd" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="1"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_chkct" global="true" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="0" caller="send_cmd" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="1"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_out_uint" global="true" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="0" caller="send_cmd" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_outct" global="true" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="0" caller="send_cmd" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="1"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_chkct" global="true" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="0" caller="send_cmd" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="1"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="send_cmd" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="0" caller="mac_set_drop_packets" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="false" val="2147483664"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="send_cmd" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="0" caller="mac_request_status_packets" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="false" val="2147483669"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="send_cmd" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="0" caller="mac_set_queue_size" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="false" val="2147483667"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="send_cmd" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="0" caller="mac_set_custom_filter" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="false" val="2147483666"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="send_cmd" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="0" caller="mac_get_link_counters" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="false" val="2147483661"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="send_cmd" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="0" caller="mac_get_global_counters" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="false" val="2147483662"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="send_cmd" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="0" caller="mac_get_tile_timer_offset" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="false" val="2147483670"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="get_tile_id_from_chanend" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_client.xc" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="0" caller="mac_get_tile_timer_offset" global="true"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+</preCompilationAnalysis>

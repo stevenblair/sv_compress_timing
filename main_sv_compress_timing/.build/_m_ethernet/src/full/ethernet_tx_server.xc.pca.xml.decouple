@@ -1,0 +1,301 @@
+<preCompilationAnalysis file="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_tx_server.xc">
+<fDef name="do_link_check" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_tx_server.xc" noreturn="false" doNotSpecialize="false" numParams="2"/>
+<fDef name="get_packet_from_client" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_tx_server.xc" noreturn="false" doNotSpecialize="false" numParams="6"/>
+<fDef name="delay_microseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="delay_milliseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="delay_seconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="ethernet_tx_server" global="true" noreturn="true" doNotSpecialize="false" numParams="9"/>
+<fDef name="mii_packet_get_crc" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_data_ptr" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_data_word" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_get_filter_result" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_forwarding" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_length" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_src_port" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_stage" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_tcount" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_timestamp" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_timestamp_id" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_user_data" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_set_crc" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_data" global="true" noreturn="false" doNotSpecialize="true" numParams="3"/>
+<fDef name="mii_packet_set_data_byte" global="true" noreturn="false" doNotSpecialize="true" numParams="3"/>
+<fDef name="mii_packet_set_data_short" global="true" noreturn="false" doNotSpecialize="true" numParams="3"/>
+<fDef name="mii_packet_set_data_word" global="true" noreturn="false" doNotSpecialize="true" numParams="3"/>
+<fDef name="mii_packet_set_filter_result" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_forwarding" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_length" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_src_port" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_stage" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_tcount" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_timestamp" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_timestamp_id" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_user_data" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="smi_check_link_state" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="ethernet_update_link_status" global="true" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="1" caller="do_link_check" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_tx_server.xc"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_byterev" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_reserve_at_least" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="false" val="348"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_get_wrap_ptr" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_reserve_at_least" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="false" val="1566"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_get_wrap_ptr" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_get_data_ptr" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="get_packet_from_client" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_tx_server.xc" numArgs="6">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="3">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="4">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="5">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_set_length" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_set_timestamp_id" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_set_timestamp_id" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="0"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_commit" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_set_tcount" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="0"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_set_stage" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="1"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_timer_after" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="do_link_check" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_tx_server.xc" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="0"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="do_link_check" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_tx_server.xc" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="1"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="get_ts_queue_entry" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_get_timestamp_id" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_get_timestamp" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="get_and_dec_transmit_count" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_free" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+</preCompilationAnalysis>

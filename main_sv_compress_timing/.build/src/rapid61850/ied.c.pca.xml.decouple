@@ -1,0 +1,4 @@
+<preCompilationAnalysis file="../src/rapid61850/ied.c">
+  <fCall global="true" name="LE_IED"/>
+  <fCall global="true" name="LE_IED_RECV"/>
+</preCompilationAnalysis>

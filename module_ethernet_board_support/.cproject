@@ -175,6 +175,11 @@
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}\target/include/xc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}\target/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}\target/include/clang&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/main_ethernet_delay/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/main_ethernet_delay/src/rapid61850}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/main_sv_compress_timing}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/main_sv_compress_timing/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/main_sv_compress_timing/src/rapid61850}&quot;"/>
 								</option>
 								<inputType id="com.xmos.cdt.xc.compiler.input.406763376" name="XC" superClass="com.xmos.cdt.xc.compiler.input"/>
 							</tool>
@@ -478,6 +483,11 @@
 								<option id="com.xmos.c.compiler.option.include.paths.500356077" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}\target/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}\target/include/clang&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/main_ethernet_delay/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/main_ethernet_delay/src/rapid61850}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/main_sv_compress_timing}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/main_sv_compress_timing/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/main_sv_compress_timing/src/rapid61850}&quot;"/>
 								</option>
 								<inputType id="com.xmos.cdt.c.compiler.input.c.892839498" name="C" superClass="com.xmos.cdt.c.compiler.input.c"/>
 							</tool>
@@ -786,6 +796,11 @@
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}\target/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}\target/include/clang&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}\target/include/c++/v1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/main_ethernet_delay/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/main_ethernet_delay/src/rapid61850}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/main_sv_compress_timing}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/main_sv_compress_timing/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/main_sv_compress_timing/src/rapid61850}&quot;"/>
 								</option>
 								<inputType id="com.xmos.cdt.cxx.compiler.input.cpp.650604305" name="C++" superClass="com.xmos.cdt.cxx.compiler.input.cpp"/>
 							</tool>
@@ -806,4 +821,5 @@
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope"/>
 </cproject>

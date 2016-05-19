@@ -1,0 +1,17 @@
+<preCompilationAnalysis file="C:/Users/nau03113/xmos142/module_ethernet/src/full/link_status.c">
+  <fCall global="true" name="ethernet_update_link_status"/>
+  <fCall global="true" name="ethernet_update_link_status.nstackwords"/>
+  <fCall global="true" name="ethernet_update_link_status.maxcores"/>
+  <fCall global="true" name="ethernet_update_link_status.maxtimers"/>
+  <fCall global="true" name="ethernet_update_link_status.maxchanends"/>
+  <fCall global="true" name="ethernet_get_link_status"/>
+  <fCall global="true" name="ethernet_get_link_status.nstackwords"/>
+  <fCall global="true" name="ethernet_get_link_status.maxcores"/>
+  <fCall global="true" name="ethernet_get_link_status.maxtimers"/>
+  <fCall global="true" name="ethernet_get_link_status.maxchanends"/>
+  <fCall global="true" name="ethernet_link_status_notification"/>
+  <fCall global="true" name="ethernet_link_status_notification.nstackwords"/>
+  <fCall global="true" name="ethernet_link_status_notification.maxcores"/>
+  <fCall global="true" name="ethernet_link_status_notification.maxtimers"/>
+  <fCall global="true" name="ethernet_link_status_notification.maxchanends"/>
+</preCompilationAnalysis>

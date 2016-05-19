@@ -1,0 +1,7 @@
+<preCompilationAnalysis file="../src/rapid61850/gse.c">
+  <fCall global="true" name="init_gse"/>
+  <fCall global="true" name="init_gse.nstackwords"/>
+  <fCall global="true" name="init_gse.maxcores"/>
+  <fCall global="true" name="init_gse.maxtimers"/>
+  <fCall global="true" name="init_gse.maxchanends"/>
+</preCompilationAnalysis>

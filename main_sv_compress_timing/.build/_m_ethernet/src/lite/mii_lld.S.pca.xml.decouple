@@ -1,0 +1,10 @@
+<preCompilationAnalysis file="C:/Users/nau03113/xmos142/module_ethernet/src/lite/mii_lld.S">
+  <fCall global="true" name="polynomial"/>
+  <fCall global="true" name="miiLLD.nstackwords"/>
+  <fCall global="true" name="miiLLD.maxcores"/>
+  <fCall global="true" name="miiLLD.maxtimers"/>
+  <fCall global="true" name="miiLLD.maxchanends"/>
+  <fCall global="true" name="miiLLD"/>
+  <fCall global="true" name="tailValues"/>
+  <fCall global="true" name="tailValues.globound"/>
+</preCompilationAnalysis>

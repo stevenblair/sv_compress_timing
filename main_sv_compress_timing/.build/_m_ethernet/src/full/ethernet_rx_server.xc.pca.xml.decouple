@@ -1,0 +1,523 @@
+<preCompilationAnalysis file="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_server.xc">
+<fDef name="get_tile_id_from_chanend" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_server.xc" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="notify" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_server.xc" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="process_received_frame" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_server.xc" noreturn="false" doNotSpecialize="false" numParams="4"/>
+<fDef name="delay_microseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="delay_milliseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="delay_seconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="ethernet_rx_server" global="true" noreturn="true" doNotSpecialize="false" numParams="4"/>
+<fDef name="mac_rx_send_frame0" global="true" noreturn="false" doNotSpecialize="false" numParams="3"/>
+<fDef name="mac_rx_send_frame1" global="true" noreturn="false" doNotSpecialize="false" numParams="3"/>
+<fDef name="mii_packet_get_crc" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_data_ptr" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_data_word" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_get_filter_result" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_forwarding" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_length" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_src_port" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_stage" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_tcount" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_timestamp" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_timestamp_id" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_get_user_data" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="mii_packet_set_crc" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_data" global="true" noreturn="false" doNotSpecialize="true" numParams="3"/>
+<fDef name="mii_packet_set_data_byte" global="true" noreturn="false" doNotSpecialize="true" numParams="3"/>
+<fDef name="mii_packet_set_data_short" global="true" noreturn="false" doNotSpecialize="true" numParams="3"/>
+<fDef name="mii_packet_set_data_word" global="true" noreturn="false" doNotSpecialize="true" numParams="3"/>
+<fDef name="mii_packet_set_filter_result" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_forwarding" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_length" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_src_port" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_stage" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_tcount" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_timestamp" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_timestamp_id" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="mii_packet_set_user_data" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="send_status_packet" global="true" noreturn="false" doNotSpecialize="false" numParams="3"/>
+<fDef name="service_link_cmd" global="true" noreturn="false" doNotSpecialize="false" numParams="3"/>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_outct" global="true" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="0" caller="notify" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_server.xc"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="1"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_in_uchar" global="true" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="0" caller="service_link_cmd" global="true"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_inct" global="true" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="0" caller="service_link_cmd" global="true"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_outct" global="true" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="0" caller="service_link_cmd" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="1"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_outct" global="true" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="0" caller="service_link_cmd" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="1"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_in_uint" global="true" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="0" caller="service_link_cmd" global="true"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_inct" global="true" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="0" caller="service_link_cmd" global="true"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_outct" global="true" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="0" caller="service_link_cmd" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="1"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="ethernet_get_mii_counts" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="ethernet_get_filter_counts" global="true" numArgs="4">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="3">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="get_tile_id_from_chanend" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_server.xc" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="0" caller="service_link_cmd" global="true"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="notify" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_server.xc" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="0" caller="service_link_cmd" global="true"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_get_data_ptr" global="true" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="0" caller="mac_rx_send_frame1" global="true"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_get_wrap_ptr" global="true" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="0" caller="mac_rx_send_frame1" global="true"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_get_length" global="true" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="0" caller="mac_rx_send_frame1" global="true"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_get_src_port" global="true" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="0" caller="mac_rx_send_frame1" global="true"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_get_user_data" global="true" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="0" caller="mac_rx_send_frame1" global="true"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_byterev" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_get_timestamp" global="true" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="0" caller="mac_rx_send_frame1" global="true"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_get_length" global="true" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="0" caller="mac_rx_send_frame1" global="true"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_get_src_port" global="true" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="0" caller="mac_rx_send_frame1" global="true"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_get_user_data" global="true" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="0" caller="mac_rx_send_frame1" global="true"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_get_timestamp" global="true" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="0" caller="mac_rx_send_frame1" global="true"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="__builtin_byterev" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_get_filter_result" global="true" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="0" caller="process_received_frame" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_server.xc"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="notify" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_server.xc" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_free" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_set_tcount" global="true" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="0" caller="process_received_frame" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_server.xc"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_init_my_rdptr" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_init_my_rdptr" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="service_link_cmd" global="true" numArgs="3">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="ethernet_get_link_status" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="intval"><intval isSigned="true" val="0"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="send_status_packet" global="true" numArgs="3">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="0"/></value>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="notify" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_server.xc" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mac_rx_send_frame1" global="true" numArgs="3">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="get_and_dec_transmit_count" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_free" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="notify" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_server.xc" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_get_my_next_buf" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_get_stage" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_update_my_rdptr" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="process_received_frame" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_server.xc" numArgs="4">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <passThroughArg param="3" caller="ethernet_rx_server" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="3">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_get_my_next_buf" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_packet_get_stage" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="mii_update_my_rdptr" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="process_received_frame" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_server.xc" numArgs="4">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <passThroughArg param="3" caller="ethernet_rx_server" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="3">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="ethernet_link_status_notification" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="ethernet_get_link_status" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="notify" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_server.xc" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+</preCompilationAnalysis>

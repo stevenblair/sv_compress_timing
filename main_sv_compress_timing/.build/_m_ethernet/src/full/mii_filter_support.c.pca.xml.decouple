@@ -1,0 +1,12 @@
+<preCompilationAnalysis file="C:/Users/nau03113/xmos142/module_ethernet/src/full/mii_filter_support.c">
+  <fCall global="true" name="mac_custom_filter_coerce"/>
+  <fCall global="true" name="mac_custom_filter_coerce.nstackwords"/>
+  <fCall global="true" name="mac_custom_filter_coerce1.nstackwords"/>
+  <fCall global="true" name="mac_custom_filter_coerce.maxcores"/>
+  <fCall global="true" name="mac_custom_filter_coerce1.maxcores"/>
+  <fCall global="true" name="mac_custom_filter_coerce.maxtimers"/>
+  <fCall global="true" name="mac_custom_filter_coerce1.maxtimers"/>
+  <fCall global="true" name="mac_custom_filter_coerce.maxchanends"/>
+  <fCall global="true" name="mac_custom_filter_coerce1.maxchanends"/>
+  <fCall global="true" name="mac_custom_filter_coerce1"/>
+</preCompilationAnalysis>

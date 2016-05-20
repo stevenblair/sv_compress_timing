@@ -1,4 +1,7 @@
-#define PRINT_TIMING_RESULTS    0
+#define PRINT_TIMING_RESULTS            0
+#define PLOT_TIMING_SIGNALS             1
+#define PLOT_TIMING_SIGNALS_DETAILED    1
+#define PLOT_TIMING_SIGNALS_FINAL       1
 
 #include <xs1.h>
 #include <xclib.h>
@@ -82,7 +85,6 @@ unsigned int next_free_buf = 0;
 
 timer sv_timer;
 timer sv_timer_recv;
-unsigned sv_recv_ts = 0;
 unsigned ASDU = 0;
 unsigned t0 = 0;
 unsigned td = 0;
@@ -103,6 +105,11 @@ unsigned get_local_time_recv() {
     return t;
 }
 
+void plot_int(unsigned char id, unsigned int data) {
+#if PLOT_TIMING_SIGNALS == 1
+    xscope_int(id, data);
+#endif
+}
 
 unsigned sv_send_frame(chanend c_tx, int tile_timer_offset) {
     unsigned next_delay = SV_DELAY_FLAG_PERIODIC_TIME_14400_HZ;
@@ -125,31 +132,36 @@ unsigned sv_send_frame(chanend c_tx, int tile_timer_offset) {
 
     ASDU_encode_time[ASDU] = (get_local_time() - t0) / 100;
 
+#if PLOT_TIMING_SIGNALS_DETAILED == 1
     switch (ASDU) {
     case 0:
-        xscope_int(ASDU_0_ENCODE_TIME, ASDU_encode_time[ASDU]);
+        plot_int(ASDU_0_ENCODE_TIME, ASDU_encode_time[ASDU]);
         break;
     case 1:
-        xscope_int(ASDU_1_ENCODE_TIME, ASDU_encode_time[ASDU]);
+        plot_int(ASDU_1_ENCODE_TIME, ASDU_encode_time[ASDU]);
         break;
     case 2:
-        xscope_int(ASDU_2_ENCODE_TIME, ASDU_encode_time[ASDU]);
+        plot_int(ASDU_2_ENCODE_TIME, ASDU_encode_time[ASDU]);
         break;
     case 3:
-        xscope_int(ASDU_3_ENCODE_TIME, ASDU_encode_time[ASDU]);
+        plot_int(ASDU_3_ENCODE_TIME, ASDU_encode_time[ASDU]);
         break;
     case 4:
-        xscope_int(ASDU_4_ENCODE_TIME, ASDU_encode_time[ASDU]);
+        plot_int(ASDU_4_ENCODE_TIME, ASDU_encode_time[ASDU]);
         break;
     case 5:
-        xscope_int(ASDU_5_ENCODE_TIME, ASDU_encode_time[ASDU]);
+        plot_int(ASDU_5_ENCODE_TIME, ASDU_encode_time[ASDU]);
         break;
     }
+#endif
 
     if (len > 0) {
         mac_tx_timed(c_tx, send_buf, len, td, INTERFACE_TX);
         //        debug_printf("sent %d bytes on port %d, ts: %d\n", len, 0, td);
-        xscope_int(FRAME_DELAY, ((td - tile_timer_offset) - (t0)) / 100);
+
+#if PLOT_TIMING_SIGNALS_DETAILED == 1
+        plot_int(FRAME_DELAY, ((td - tile_timer_offset) - (t0)) / 100);
+#endif
     }
 
     ASDU++;
@@ -183,7 +195,7 @@ unsigned sv_send_frame(chanend c_tx, int tile_timer_offset) {
 
 #pragma select handler
 void sv_recv_and_process_packet(chanend c_rx, int tile_timer_offset) {
-    unsigned local_t0 = 0;
+    unsigned local_t0 = get_global_t0();
     unsigned recv_time = 0;
     unsigned decode_time = 0;
 
@@ -194,14 +206,13 @@ void sv_recv_and_process_packet(chanend c_rx, int tile_timer_offset) {
             delay_buffer[next_free_buf].src_port,
             MAX_DELAY_MESG_LENGTH);
 
-    sv_recv_ts = delay_buffer[next_free_buf].rx_ts;
-
     //      debug_printf("recv %d bytes on port %d, ts: %d\n", delay_buffer[next_free_buf].len, delay_buffer[next_free_buf].src_port, sv_recv_ts);
 
     //          GET_SHARED_GLOBAL(local_t0_for_recv, t0_for_recv);
-    local_t0 = get_global_t0();
-    recv_time = (sv_recv_ts - (local_t0 + tile_timer_offset)) / 100;
-    xscope_int(RECV_FLAG, recv_time);
+    recv_time = (delay_buffer[next_free_buf].rx_ts - (local_t0 + tile_timer_offset)) / 100;
+#if PLOT_TIMING_SIGNALS_DETAILED == 1
+    plot_int(RECV_FLAG, recv_time);
+#endif
     //      debug_printf("sv_recv_ts: %d, local_t0_for_recv: %d, tile_timer_offset: %d\n", sv_recv_ts, local_t0_for_recv, tile_timer_offset);
     //      debug_printf("  get_global(): %d\n", get_global());
 
@@ -213,8 +224,11 @@ void sv_recv_and_process_packet(chanend c_rx, int tile_timer_offset) {
         proxy_svDecode((delay_buffer[next_free_buf].buf, unsigned char[]), delay_buffer[next_free_buf].len);
         sv_mode_recv = COMPRESSION;
     }
+
     decode_time = (get_local_time_recv() - local_t0) / 100;
-    xscope_int(DECODE_TIME, decode_time);
+#if PLOT_TIMING_SIGNALS_FINAL == 1
+    plot_int(DECODE_TIME, decode_time);
+#endif
 
     next_free_buf++;
     if (next_free_buf >= MAX_BUF_LENGTH) {

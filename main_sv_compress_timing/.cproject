@@ -869,4 +869,5 @@
 		<project id="main_sv_compress_timing.null.1997686469" name="main_sv_compress_timing"/>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope"/>
 </cproject>

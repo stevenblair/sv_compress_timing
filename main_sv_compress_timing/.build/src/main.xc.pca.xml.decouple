@@ -33,6 +33,7 @@
 <fDef name="mii_packet_set_timestamp" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
 <fDef name="mii_packet_set_timestamp_id" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
 <fDef name="mii_packet_set_user_data" global="true" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="plot_int" global="true" noreturn="false" doNotSpecialize="false" numParams="2"/>
 <fDef name="sv_recv_and_process_packet" global="true" noreturn="false" doNotSpecialize="false" numParams="2"/>
 <fDef name="sv_send_frame" global="true" noreturn="false" doNotSpecialize="false" numParams="2"/>
 <fDef name="sv_timing_rx" global="true" noreturn="true" doNotSpecialize="false" numParams="2"/>
@@ -58,111 +59,15 @@
     </values>
   </arg>
 </fCall>
-<fCall name="safe_mac_rx_timed" global="true" numArgs="6">
-  <arg num="0">
-    <passThroughArg param="0" caller="sv_recv_and_process_packet" global="true"/>
-    <values>
-    </values>
-  </arg>
-  <arg num="1">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="2">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="3">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="4">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="5">
-    <values>
-      <value type="intval"><intval isSigned="true" val="1024"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="get_global_t0" global="true" numArgs="0">
-</fCall>
 <fCall name="xscope_int" global="true" numArgs="2">
   <arg num="0">
+    <passThroughArg param="0" caller="plot_int" global="true"/>
     <values>
-      <value type="intval"><intval isSigned="true" val="7"/></value>
     </values>
   </arg>
   <arg num="1">
+    <passThroughArg param="1" caller="plot_int" global="true"/>
     <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-</fCall>
-<fCall name="proxy_svDecode_compress" global="true" numArgs="2">
-  <arg num="0">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="1">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-</fCall>
-<fCall name="proxy_svDecode" global="true" numArgs="2">
-  <arg num="0">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="1">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-</fCall>
-<fCall name="get_local_time_recv" global="true" numArgs="0">
-</fCall>
-<fCall name="xscope_int" global="true" numArgs="2">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="8"/></value>
-    </values>
-  </arg>
-  <arg num="1">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-</fCall>
-<fCall name="debug_printf" global="true" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-</fCall>
-<fCall name="debug_printf" global="true" numArgs="3">
-  <arg num="0">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="1">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="2">
-    <values>
-      <value type="unknown"/>
     </values>
   </arg>
 </fCall>
@@ -198,7 +103,7 @@
 </fCall>
 <fCall name="get_local_time" global="true" numArgs="0">
 </fCall>
-<fCall name="xscope_int" global="true" numArgs="2">
+<fCall name="plot_int" global="true" numArgs="2">
   <arg num="0">
     <values>
       <value type="intval"><intval isSigned="true" val="1"/></value>
@@ -210,7 +115,7 @@
     </values>
   </arg>
 </fCall>
-<fCall name="xscope_int" global="true" numArgs="2">
+<fCall name="plot_int" global="true" numArgs="2">
   <arg num="0">
     <values>
       <value type="intval"><intval isSigned="true" val="2"/></value>
@@ -222,7 +127,7 @@
     </values>
   </arg>
 </fCall>
-<fCall name="xscope_int" global="true" numArgs="2">
+<fCall name="plot_int" global="true" numArgs="2">
   <arg num="0">
     <values>
       <value type="intval"><intval isSigned="true" val="3"/></value>
@@ -234,7 +139,7 @@
     </values>
   </arg>
 </fCall>
-<fCall name="xscope_int" global="true" numArgs="2">
+<fCall name="plot_int" global="true" numArgs="2">
   <arg num="0">
     <values>
       <value type="intval"><intval isSigned="true" val="4"/></value>
@@ -246,7 +151,7 @@
     </values>
   </arg>
 </fCall>
-<fCall name="xscope_int" global="true" numArgs="2">
+<fCall name="plot_int" global="true" numArgs="2">
   <arg num="0">
     <values>
       <value type="intval"><intval isSigned="true" val="5"/></value>
@@ -258,7 +163,7 @@
     </values>
   </arg>
 </fCall>
-<fCall name="xscope_int" global="true" numArgs="2">
+<fCall name="plot_int" global="true" numArgs="2">
   <arg num="0">
     <values>
       <value type="intval"><intval isSigned="true" val="6"/></value>
@@ -297,7 +202,7 @@
     </values>
   </arg>
 </fCall>
-<fCall name="xscope_int" global="true" numArgs="2">
+<fCall name="plot_int" global="true" numArgs="2">
   <arg num="0">
     <values>
       <value type="intval"><intval isSigned="true" val="0"/></value>
@@ -309,17 +214,12 @@
     </values>
   </arg>
 </fCall>
-<fCall name="debug_printf" global="true" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
+<fCall name="get_global_t0" global="true" numArgs="0">
 </fCall>
-<fCall name="debug_printf" global="true" numArgs="8">
+<fCall name="safe_mac_rx_timed" global="true" numArgs="6">
   <arg num="0">
+    <passThroughArg param="0" caller="sv_recv_and_process_packet" global="true"/>
     <values>
-      <value type="unknown"/>
     </values>
   </arg>
   <arg num="1">
@@ -344,15 +244,55 @@
   </arg>
   <arg num="5">
     <values>
-      <value type="unknown"/>
+      <value type="intval"><intval isSigned="true" val="1024"/></value>
     </values>
   </arg>
-  <arg num="6">
+</fCall>
+<fCall name="plot_int" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="intval"><intval isSigned="true" val="7"/></value>
+    </values>
+  </arg>
+  <arg num="1">
     <values>
       <value type="unknown"/>
     </values>
   </arg>
-  <arg num="7">
+</fCall>
+<fCall name="proxy_svDecode_compress" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="proxy_svDecode" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="get_local_time_recv" global="true" numArgs="0">
+</fCall>
+<fCall name="plot_int" global="true" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="intval"><intval isSigned="true" val="8"/></value>
+    </values>
+  </arg>
+  <arg num="1">
     <values>
       <value type="unknown"/>
     </values>

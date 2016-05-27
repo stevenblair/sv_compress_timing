@@ -1,6 +1,6 @@
-#define PRINT_TIMING_RESULTS            0
+#define PRINT_TIMING_RESULTS            1
 #define PLOT_TIMING_SIGNALS             1
-#define PLOT_TIMING_SIGNALS_DETAILED    1
+#define PLOT_TIMING_SIGNALS_DETAILED    0
 #define PLOT_TIMING_SIGNALS_FINAL       1
 
 #include <xs1.h>
@@ -46,7 +46,7 @@ on tile[1]: mii_interface_t mii2 = {
 //#define SV_DELAY_FLAG_PERIODIC_TIME (1666667)      // approx. 6 Hz
 #define SV_DELAY_FLAG_PERIODIC_TIME_REMAINDER_OF_CYCLE (1631944)      // 16.319 ms
 
-#define MAX_DELAY_MESG_LENGTH   1024        // TODO define max packet size
+#define MAX_DELAY_MESG_LENGTH   1024
 #define MAX_BUF_LENGTH  16
 
 #define INTERFACE_TX    0
@@ -311,4 +311,3 @@ int main()
 
     return 0;
 }
-

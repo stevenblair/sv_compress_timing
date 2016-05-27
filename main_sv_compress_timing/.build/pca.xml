@@ -1685,17 +1685,9 @@
     </values>
   </arg>
 </fInfo>
-<fInfo name="plot_int" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="2">
-  <arg num="0" specialize="false">
+<fInfo name="plot_int" global="true" specialize="true" noreturn="false" doNotSpecialize="false" numParams="2">
+  <arg num="0" specialize="true">
     <values>
-      <value type="intval"><intval isSigned="true" val="0"/></value>
-      <value type="intval"><intval isSigned="true" val="1"/></value>
-      <value type="intval"><intval isSigned="true" val="2"/></value>
-      <value type="intval"><intval isSigned="true" val="3"/></value>
-      <value type="intval"><intval isSigned="true" val="4"/></value>
-      <value type="intval"><intval isSigned="true" val="5"/></value>
-      <value type="intval"><intval isSigned="true" val="6"/></value>
-      <value type="intval"><intval isSigned="true" val="7"/></value>
       <value type="intval"><intval isSigned="true" val="8"/></value>
     </values>
   </arg>
@@ -1704,6 +1696,12 @@
       <value type="unknown"/>
     </values>
   </arg>
+ <specializations>
+   <specialization id="0">
+    <arg num="0"><values><value type="intval"><intval isSigned="true" val="8"/></value></values></arg>
+    <arg num="1"><values><value type="unknown"/></values></arg>
+   </specialization>
+ </specializations>
 </fInfo>
 <fInfo name="random_create_generator_from_hw_seed" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="0">
 </fInfo>

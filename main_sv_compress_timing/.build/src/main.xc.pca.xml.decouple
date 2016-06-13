@@ -59,18 +59,6 @@
     </values>
   </arg>
 </fCall>
-<fCall name="xscope_int" global="true" numArgs="2">
-  <arg num="0">
-    <passThroughArg param="0" caller="plot_int" global="true"/>
-    <values>
-    </values>
-  </arg>
-  <arg num="1">
-    <passThroughArg param="1" caller="plot_int" global="true"/>
-    <values>
-    </values>
-  </arg>
-</fCall>
 <fCall name="get_local_time" global="true" numArgs="0">
 </fCall>
 <fCall name="set_global_t0" global="true" numArgs="1">
@@ -240,18 +228,6 @@
   </arg>
 </fCall>
 <fCall name="get_local_time_recv" global="true" numArgs="0">
-</fCall>
-<fCall name="plot_int" global="true" numArgs="2">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="8"/></value>
-    </values>
-  </arg>
-  <arg num="1">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
 </fCall>
 <fCall name="proxy_test_decoded_values" global="true" numArgs="0">
 </fCall>

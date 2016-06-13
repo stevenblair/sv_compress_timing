@@ -1,9 +1,9 @@
 #define PRINT_TIMING_RESULTS            1
-#define PLOT_TIMING_SIGNALS             1
+#define PLOT_TIMING_SIGNALS             0
 #define PLOT_TIMING_SIGNALS_DETAILED    0
-#define PLOT_TIMING_SIGNALS_FINAL       1
+#define PLOT_TIMING_SIGNALS_FINAL       0
 #define PLOT_WAVEFORM                   0
-#define VALIDATE                        1
+#define VALIDATE_DECODING               1
 
 #include <xs1.h>
 #include <xclib.h>
@@ -252,7 +252,7 @@ void sv_recv_and_process_packet(chanend c_rx, int tile_timer_offset) {
 //            proxy_get_decoded_value(5));
 #endif
 
-#if VALIDATE == 1
+#if VALIDATE_DECODING == 1
     if (proxy_test_decoded_values() != 1) {
         debug_printf("validation failed (mode %d)\n", sv_mode_recv);
     }

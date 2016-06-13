@@ -149,11 +149,20 @@
   <fCall global="true" name="svDecodeAPDU_compress.maxcores"/>
   <fCall global="true" name="svDecodeAPDU_compress.maxtimers"/>
   <fCall global="true" name="svDecodeAPDU_compress.maxchanends"/>
+  <fCall global="true" name="svDecodeAPDU_compress_loop"/>
+  <fCall global="true" name="svDecodeAPDU_compress_loop.nstackwords"/>
+  <fCall global="true" name="svDecodeAPDU_compress_loop.maxcores"/>
+  <fCall global="true" name="svDecodeAPDU_compress_loop.maxtimers"/>
+  <fCall global="true" name="svDecodeAPDU_compress_loop.maxchanends"/>
   <fCall global="true" name="svDecode_compress"/>
   <fCall global="true" name="svDecode_compress.nstackwords"/>
   <fCall global="true" name="svDecode_compress.maxcores"/>
   <fCall global="true" name="svDecode_compress.maxtimers"/>
   <fCall global="true" name="svDecode_compress.maxchanends"/>
+  <fCall global="true" name="prev_smpCnt"/>
+  <fCall global="true" name="prev_svID.globound"/>
+  <fCall global="true" name="prev_svID"/>
+  <fCall global="true" name="prev_svID_length"/>
   <fCall global="true" name="strlen"/>
   <fCall global="true" name="getLengthBytes"/>
   <fCall global="true" name="netmemcpy"/>

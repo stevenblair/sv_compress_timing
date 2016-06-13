@@ -16,6 +16,11 @@
   <fCall global="true" name="sin.maxtimers"/>
   <fCall global="true" name="precompute_values.maxchanends"/>
   <fCall global="true" name="sin.maxchanends"/>
+  <fCall global="true" name="get_value"/>
+  <fCall global="true" name="get_value.nstackwords"/>
+  <fCall global="true" name="get_value.maxcores"/>
+  <fCall global="true" name="get_value.maxtimers"/>
+  <fCall global="true" name="get_value.maxchanends"/>
   <fCall global="true" name="set_values"/>
   <fCall global="true" name="set_values.nstackwords"/>
   <fCall global="true" name="set_values.maxcores"/>
@@ -63,6 +68,21 @@
   <fCall global="true" name="svDecode.maxtimers"/>
   <fCall global="true" name="proxy_svDecode.maxchanends"/>
   <fCall global="true" name="svDecode.maxchanends"/>
+  <fCall global="true" name="proxy_get_decoded_value"/>
+  <fCall global="true" name="proxy_get_decoded_value.nstackwords"/>
+  <fCall global="true" name="proxy_get_decoded_value.maxcores"/>
+  <fCall global="true" name="proxy_get_decoded_value.maxtimers"/>
+  <fCall global="true" name="proxy_get_decoded_value.maxchanends"/>
+  <fCall global="true" name="proxy_test_decoded_values"/>
+  <fCall global="true" name="proxy_test_decoded_values.nstackwords"/>
+  <fCall global="true" name="proxy_test_decoded_values.maxcores"/>
+  <fCall global="true" name="proxy_test_decoded_values.maxtimers"/>
+  <fCall global="true" name="proxy_test_decoded_values.maxchanends"/>
+  <fCall global="true" name="proxy_clear_decoded_values"/>
+  <fCall global="true" name="proxy_clear_decoded_values.nstackwords"/>
+  <fCall global="true" name="proxy_clear_decoded_values.maxcores"/>
+  <fCall global="true" name="proxy_clear_decoded_values.maxtimers"/>
+  <fCall global="true" name="proxy_clear_decoded_values.maxchanends"/>
   <fCall global="true" name="phase"/>
   <fCall global="true" name="offset"/>
   <fCall global="true" name="value.globound"/>
@@ -74,11 +94,12 @@
   <fCall global="true" name="svDecode_compress"/>
   <fCall global="true" name="svDecode"/>
   <fCall global="true" name="LE_IED"/>
+  <fCall global="true" name="LE_IED_RECV"/>
   <fCall global="true" name="__addsf3"/>
   <fCall global="true" name="__extendsfdf2"/>
+  <fCall global="true" name="__adddf3"/>
   <fCall global="true" name="__muldf3"/>
   <fCall global="true" name="__fixdfsi"/>
-  <fCall global="true" name="__adddf3"/>
   <fCall global="true" name="__truncdfsf2"/>
   <fCall global="true" name="__ledf2"/>
   <fCall global="true" name="__unorddf2"/>

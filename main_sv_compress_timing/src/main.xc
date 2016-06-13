@@ -2,6 +2,8 @@
 #define PLOT_TIMING_SIGNALS             1
 #define PLOT_TIMING_SIGNALS_DETAILED    0
 #define PLOT_TIMING_SIGNALS_FINAL       1
+#define PLOT_WAVEFORM                   0
+#define VALIDATE                        1
 
 #include <xs1.h>
 #include <xclib.h>
@@ -197,6 +199,7 @@ unsigned sv_send_frame(chanend c_tx, int tile_timer_offset) {
 void sv_recv_and_process_packet(chanend c_rx, int tile_timer_offset) {
     unsigned local_t0 = get_global_t0();
     unsigned recv_time = 0;
+    unsigned ready_to_decode_time = 0;
     unsigned decode_time = 0;
 
     safe_mac_rx_timed(c_rx,
@@ -210,6 +213,9 @@ void sv_recv_and_process_packet(chanend c_rx, int tile_timer_offset) {
 
     //          GET_SHARED_GLOBAL(local_t0_for_recv, t0_for_recv);
     recv_time = (delay_buffer[next_free_buf].rx_ts - (local_t0 + tile_timer_offset)) / 100;
+
+    ready_to_decode_time = (get_local_time_recv() - local_t0) / 100;
+
 #if PLOT_TIMING_SIGNALS_DETAILED == 1
     plot_int(RECV_FLAG, recv_time);
 #endif
@@ -218,17 +224,46 @@ void sv_recv_and_process_packet(chanend c_rx, int tile_timer_offset) {
 
     if (sv_mode_recv == COMPRESSION) {
         proxy_svDecode_compress((delay_buffer[next_free_buf].buf, unsigned char[]), delay_buffer[next_free_buf].len);
-        sv_mode_recv = NO_COMPRESSION;
     }
     else {
         proxy_svDecode((delay_buffer[next_free_buf].buf, unsigned char[]), delay_buffer[next_free_buf].len);
-        sv_mode_recv = COMPRESSION;
     }
 
     decode_time = (get_local_time_recv() - local_t0) / 100;
+
 #if PLOT_TIMING_SIGNALS_FINAL == 1
     plot_int(DECODE_TIME, decode_time);
 #endif
+
+#if PLOT_WAVEFORM == 1
+//    plot_int(DECODED_WAVEFORM, proxy_get_decoded_value(0));
+//    plot_int(DECODED_WAVEFORM, proxy_get_decoded_value(1));
+//    plot_int(DECODED_WAVEFORM, proxy_get_decoded_value(2));
+//    plot_int(DECODED_WAVEFORM, proxy_get_decoded_value(3));
+//    plot_int(DECODED_WAVEFORM, proxy_get_decoded_value(4));
+//    plot_int(DECODED_WAVEFORM, proxy_get_decoded_value(5));
+
+//    debug_printf("%d %d %d %d %d %d\n",
+//            proxy_get_decoded_value(0),
+//            proxy_get_decoded_value(1),
+//            proxy_get_decoded_value(2),
+//            proxy_get_decoded_value(3),
+//            proxy_get_decoded_value(4),
+//            proxy_get_decoded_value(5));
+#endif
+
+#if VALIDATE == 1
+    if (proxy_test_decoded_values() != 1) {
+        debug_printf("validation failed (mode %d)\n", sv_mode_recv);
+    }
+#endif
+
+    if (sv_mode_recv == COMPRESSION) {
+        sv_mode_recv = NO_COMPRESSION;
+    }
+    else {
+        sv_mode_recv = COMPRESSION;
+    }
 
     next_free_buf++;
     if (next_free_buf >= MAX_BUF_LENGTH) {
@@ -236,11 +271,14 @@ void sv_recv_and_process_packet(chanend c_rx, int tile_timer_offset) {
     }
 
 #if PRINT_TIMING_RESULTS == 1
-    debug_printf("Recv Decode\n");
-    debug_printf("%d %d\n",
+    debug_printf("Recv, Ready to decode, Decode\n");
+    debug_printf("%d,  %d,             %d\n",
             recv_time,
+            ready_to_decode_time,
             decode_time);
 #endif
+
+    proxy_clear_decoded_values();
 }
 
 void sv_timing_tx(chanend c_tx, chanend share_tile_timer_offset) {
@@ -249,6 +287,20 @@ void sv_timing_tx(chanend c_tx, chanend share_tile_timer_offset) {
     static int tile_timer_offset = -79802;
 
     proxy_initialise_iec61850();
+
+    int ASDU = 0;
+    for (ASDU = 0; ASDU < 6; ASDU++) {
+        debug_printf("ASDU %d: %d %d %d %d %d %d %d %d\n",
+                ASDU,
+                get_value(0, ASDU),
+                get_value(1, ASDU),
+                get_value(2, ASDU),
+                get_value(3, ASDU),
+                get_value(4, ASDU),
+                get_value(5, ASDU),
+                get_value(6, ASDU),
+                get_value(7, ASDU));
+    }
 
     while (1) {
         [[ordered]]

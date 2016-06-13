@@ -33,6 +33,8 @@ extern "C" {
 #include "encodePacket.h"
 #include "decodePacket.h"
 
+//#include "debug_print.h"
+
 #define EXCLUDE_DUPLICATE_ASDU_FIELDS	1
 
 int svASDULength_compress(struct svControl *svControl, short ASDU) {
@@ -296,7 +298,6 @@ uint32_t decode_uint32_t(uint8_t* input, size_t inputSize, uint8_t *number_of_by
         }
     }
     *number_of_bytes = i + 1;
-    ret = logicalRightShift(ret, 1) ^ -(ret & 1);	// decode zigzag
     return ret;
 }
 int32_t decode_int32_t(uint8_t* input, size_t inputSize, uint8_t *number_of_bytes) {
@@ -310,6 +311,7 @@ int32_t decode_int32_t(uint8_t* input, size_t inputSize, uint8_t *number_of_byte
         }
     }
     *number_of_bytes = i + 1;
+    ret = logicalRightShift(ret, 1) ^ -(ret & 1);   // decode zigzag
     return ret;
 }
 
@@ -339,22 +341,39 @@ int encode_LE_IED_MUnn_PhsMeas1_compress(unsigned char *buf, struct LE_IED_MUnn_
 	}
 	else {
 		// TODO should be formed of individual *_compress encoders
-		offset += encode_int32_t(&buf[offset], prev_data_values->MUnn_TCTR_1_Amp_instMag.i - LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_1.Amp.instMag.i);
-		offset += encode_uint32_t(&buf[offset], prev_data_values->MUnn_TCTR_1_Amp_q - LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_1.Amp.q);
-		offset += encode_int32_t(&buf[offset], prev_data_values->MUnn_TCTR_2_Amp_instMag.i - LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_2.Amp.instMag.i);
-		offset += encode_uint32_t(&buf[offset], prev_data_values->MUnn_TCTR_2_Amp_q - LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_2.Amp.q);
-		offset += encode_int32_t(&buf[offset], prev_data_values->MUnn_TCTR_3_Amp_instMag.i - LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_3.Amp.instMag.i);
-		offset += encode_uint32_t(&buf[offset], prev_data_values->MUnn_TCTR_3_Amp_q - LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_3.Amp.q);
-		offset += encode_int32_t(&buf[offset], prev_data_values->MUnn_TCTR_4_Amp_instMag.i - LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_4.Amp.instMag.i);
-		offset += encode_uint32_t(&buf[offset], prev_data_values->MUnn_TCTR_4_Amp_q - LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_4.Amp.q);
-		offset += encode_int32_t(&buf[offset], prev_data_values->MUnn_TVTR_1_Vol_instMag.i - LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_1.Vol.instMag.i);
-		offset += encode_uint32_t(&buf[offset], prev_data_values->MUnn_TVTR_1_Vol_q - LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_1.Vol.q);
-		offset += encode_int32_t(&buf[offset], prev_data_values->MUnn_TVTR_2_Vol_instMag.i - LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_2.Vol.instMag.i);
-		offset += encode_uint32_t(&buf[offset], prev_data_values->MUnn_TVTR_2_Vol_q - LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_2.Vol.q);
-		offset += encode_int32_t(&buf[offset], prev_data_values->MUnn_TVTR_3_Vol_instMag.i - LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_3.Vol.instMag.i);
-		offset += encode_uint32_t(&buf[offset], prev_data_values->MUnn_TVTR_3_Vol_q - LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_3.Vol.q);
-		offset += encode_int32_t(&buf[offset], prev_data_values->MUnn_TVTR_4_Vol_instMag.i - LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_4.Vol.instMag.i);
-		offset += encode_uint32_t(&buf[offset], prev_data_values->MUnn_TVTR_4_Vol_q - LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_4.Vol.q);
+//        offset += encode_int32_t(&buf[offset], prev_data_values->MUnn_TCTR_1_Amp_instMag.i - LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_1.Amp.instMag.i);
+//        offset += encode_uint32_t(&buf[offset], prev_data_values->MUnn_TCTR_1_Amp_q - LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_1.Amp.q);
+//        offset += encode_int32_t(&buf[offset], prev_data_values->MUnn_TCTR_2_Amp_instMag.i - LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_2.Amp.instMag.i);
+//        offset += encode_uint32_t(&buf[offset], prev_data_values->MUnn_TCTR_2_Amp_q - LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_2.Amp.q);
+//        offset += encode_int32_t(&buf[offset], prev_data_values->MUnn_TCTR_3_Amp_instMag.i - LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_3.Amp.instMag.i);
+//        offset += encode_uint32_t(&buf[offset], prev_data_values->MUnn_TCTR_3_Amp_q - LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_3.Amp.q);
+//        offset += encode_int32_t(&buf[offset], prev_data_values->MUnn_TCTR_4_Amp_instMag.i - LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_4.Amp.instMag.i);
+//        offset += encode_uint32_t(&buf[offset], prev_data_values->MUnn_TCTR_4_Amp_q - LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_4.Amp.q);
+//        offset += encode_int32_t(&buf[offset], prev_data_values->MUnn_TVTR_1_Vol_instMag.i - LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_1.Vol.instMag.i);
+//        offset += encode_uint32_t(&buf[offset], prev_data_values->MUnn_TVTR_1_Vol_q - LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_1.Vol.q);
+//        offset += encode_int32_t(&buf[offset], prev_data_values->MUnn_TVTR_2_Vol_instMag.i - LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_2.Vol.instMag.i);
+//        offset += encode_uint32_t(&buf[offset], prev_data_values->MUnn_TVTR_2_Vol_q - LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_2.Vol.q);
+//        offset += encode_int32_t(&buf[offset], prev_data_values->MUnn_TVTR_3_Vol_instMag.i - LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_3.Vol.instMag.i);
+//        offset += encode_uint32_t(&buf[offset], prev_data_values->MUnn_TVTR_3_Vol_q - LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_3.Vol.q);
+//        offset += encode_int32_t(&buf[offset], prev_data_values->MUnn_TVTR_4_Vol_instMag.i - LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_4.Vol.instMag.i);
+//        offset += encode_uint32_t(&buf[offset], prev_data_values->MUnn_TVTR_4_Vol_q - LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_4.Vol.q);
+
+        offset += encode_int32_t(&buf[offset], LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_1.Amp.instMag.i - prev_data_values->MUnn_TCTR_1_Amp_instMag.i);
+        offset += encode_uint32_t(&buf[offset], LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_1.Amp.q - prev_data_values->MUnn_TCTR_1_Amp_q);
+        offset += encode_int32_t(&buf[offset], LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_2.Amp.instMag.i - prev_data_values->MUnn_TCTR_2_Amp_instMag.i);
+        offset += encode_uint32_t(&buf[offset], LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_2.Amp.q - prev_data_values->MUnn_TCTR_2_Amp_q);
+        offset += encode_int32_t(&buf[offset], LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_3.Amp.instMag.i - prev_data_values->MUnn_TCTR_3_Amp_instMag.i);
+        offset += encode_uint32_t(&buf[offset], LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_3.Amp.q - prev_data_values->MUnn_TCTR_3_Amp_q);
+        offset += encode_int32_t(&buf[offset],  LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_4.Amp.instMag.i - prev_data_values->MUnn_TCTR_4_Amp_instMag.i);
+        offset += encode_uint32_t(&buf[offset], LE_IED.S1.MUnn.IEC_61850_9_2LETCTR_4.Amp.q - prev_data_values->MUnn_TCTR_4_Amp_q);
+        offset += encode_int32_t(&buf[offset], LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_1.Vol.instMag.i - prev_data_values->MUnn_TVTR_1_Vol_instMag.i);
+        offset += encode_uint32_t(&buf[offset], LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_1.Vol.q - prev_data_values->MUnn_TVTR_1_Vol_q);
+        offset += encode_int32_t(&buf[offset], LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_2.Vol.instMag.i - prev_data_values->MUnn_TVTR_2_Vol_instMag.i);
+        offset += encode_uint32_t(&buf[offset], LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_2.Vol.q - prev_data_values->MUnn_TVTR_2_Vol_q);
+        offset += encode_int32_t(&buf[offset], LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_3.Vol.instMag.i - prev_data_values->MUnn_TVTR_3_Vol_instMag.i);
+        offset += encode_uint32_t(&buf[offset], LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_3.Vol.q - prev_data_values->MUnn_TVTR_3_Vol_q);
+        offset += encode_int32_t(&buf[offset], LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_4.Vol.instMag.i - prev_data_values->MUnn_TVTR_4_Vol_instMag.i);
+        offset += encode_uint32_t(&buf[offset], LE_IED.S1.MUnn.IEC_61850_9_2LETVTR_4.Vol.q - prev_data_values->MUnn_TVTR_4_Vol_q);
 
 //		printf("offset: %d\n", offset);
 	}
@@ -496,7 +515,12 @@ void svDecodeDataset_compress(unsigned char *dataset, int datasetLength, int ASD
 	}
 }
 
-int svDecodeASDU_compress(unsigned char *buf, int len, int noASDU, int prev_smpCnt, unsigned char *prev_svID, int *prev_svID_length) {
+
+int prev_smpCnt = 0;
+unsigned char prev_svID[32] = {0};
+int prev_svID_length = 0;
+
+int svDecodeASDU_compress(unsigned char *buf, int len, int noASDU) {
 	unsigned char tag;	// assumes only one byte is used
 	int lengthFieldSize;
 	int lengthValue;
@@ -519,8 +543,9 @@ int svDecodeASDU_compress(unsigned char *buf, int len, int noASDU, int prev_smpC
 				svID = &buf[i + 1 + lengthFieldSize];
 				svIDLength = lengthValue;
 
-				prev_svID = svID;
-				*prev_svID_length = lengthValue;
+//				prev_svID = svID;
+				memcpy(prev_svID, svID, lengthValue);
+				prev_svID_length = lengthValue;
 				break;
 			case SV_TAG_DATSET:
 
@@ -544,8 +569,8 @@ int svDecodeASDU_compress(unsigned char *buf, int len, int noASDU, int prev_smpC
 				if (svID != NULL) {
 					svDecodeDataset_compress(&buf[i + 1 + lengthFieldSize], lengthValue, noASDU, svID, svIDLength, smpCnt);
 				}
-				else if (prev_svID != NULL) {
-					svDecodeDataset_compress(&buf[i + 1 + lengthFieldSize], lengthValue, noASDU, prev_svID, *prev_svID_length, smpCnt);
+				else {// if (prev_svID_length > 0) {
+					svDecodeDataset_compress(&buf[i + 1 + lengthFieldSize], lengthValue, noASDU, prev_svID, prev_svID_length, smpCnt);
 				}
 				break;
 			default:
@@ -565,9 +590,6 @@ void svDecodeAPDU_compress(unsigned char *buf, int len, unsigned int ASDU, unsig
 	int offsetForSequence = 1 + lengthFieldSize;
 	int offsetForNonSequence = 1 + lengthFieldSize + lengthValue;
 	unsigned int noASDU = 0;
-	int prev_smpCnt = 0;
-	unsigned char *prev_svID = NULL;
-	int prev_svID_length = 0;
 	int ret = 0;
 	//static unsigned int ASDU = 0;
 
@@ -586,7 +608,13 @@ void svDecodeAPDU_compress(unsigned char *buf, int len, unsigned int ASDU, unsig
 			svDecodeAPDU_compress(&buf[offsetForSequence], lengthValue, ASDU, totalASDUs);
 			break;
 		case SV_TAG_ASDU:
-			ret = svDecodeASDU_compress(&buf[offsetForSequence], lengthValue, ASDU, prev_smpCnt, prev_svID, &prev_svID_length);
+//		    if (prev_svID_length > 0) {
+//		        debug_printf("svDecodeAPDU_compress() ASDU %d, %d, %s\n", ASDU, prev_smpCnt, prev_svID);
+//		    }
+//		    else {
+//                debug_printf("svDecodeAPDU_compress() ASDU %d, %d\n", ASDU, prev_smpCnt);
+//		    }
+			ret = svDecodeASDU_compress(&buf[offsetForSequence], lengthValue, ASDU);
 			if (ret > 0) {
 				prev_smpCnt = ret;
 			}
@@ -603,6 +631,80 @@ void svDecodeAPDU_compress(unsigned char *buf, int len, unsigned int ASDU, unsig
 		default:
 			break;
 	}
+}
+
+// loop implementation
+void svDecodeAPDU_compress_loop(unsigned char *buf, int len, unsigned int ASDU, unsigned int totalASDUs) {
+    unsigned char tag = (unsigned char) buf[0]; // assumes only one byte is used
+    int lengthFieldSize = getLengthFieldSize((unsigned char) buf[1]);
+    int lengthValue = decodeLength((unsigned char *) &buf[1]);
+    int offsetForSequence = 1 + lengthFieldSize;
+    int offsetForNonSequence = 1 + lengthFieldSize + lengthValue;
+    unsigned int noASDU = 0;
+    int prev_smpCnt = 0;
+//    unsigned char *prev_svID = NULL;
+//    int prev_svID_length = 0;
+    int ret = 0;
+    //static unsigned int ASDU = 0;
+    int pos = 0;
+
+    //printf("tag: %x, ASDU: %u,  totalASDUs: %u, lengthFieldSize: %i, lengthValue: %i, offset: %i\n", tag, ASDU, totalASDUs, lengthFieldSize, lengthValue, offsetForNonSequence);
+
+    while (1) {
+        switch (tag) {
+            case SV_TAG_SAVPDU:
+//                svDecodeAPDU_compress(&buf[pos + offsetForSequence], lengthValue, ASDU, totalASDUs);
+                pos += offsetForSequence;
+                break;
+            case SV_TAG_NOASDU:
+                noASDU = (unsigned int) buf[pos + 1 + lengthFieldSize];   // assuming noASDU is < 126
+                //ASDU = 0;
+//                svDecodeAPDU_compress(&buf[pos + offsetForNonSequence], len - offsetForNonSequence, ASDU, noASDU);
+                pos += offsetForSequence;
+                break;
+            case SV_TAG_SEQUENCEOFASDU:
+//                svDecodeAPDU_compress(&buf[pos + offsetForSequence], lengthValue, ASDU, totalASDUs);
+                pos += offsetForSequence;
+                break;
+            case SV_TAG_ASDU:
+//                while (ASDU < totalASDUs) {
+//                    svDecodeAPDU_compress(&buf[pos + offsetForNonSequence], len - offsetForNonSequence, ASDU, totalASDUs);
+//                }
+
+//                if (prev_svID_length > 0) {
+//                    debug_printf("svDecodeAPDU_compress() ASDU %d, %d, %s\n", ASDU, prev_smpCnt, prev_svID);
+//                }
+//                else {
+//                    debug_printf("svDecodeAPDU_compress() ASDU %d, %d\n", ASDU, prev_smpCnt);
+//                }
+                ret = svDecodeASDU_compress(&buf[pos + offsetForSequence], lengthValue, ASDU);
+//                ret = svDecodeASDU_compress(&buf[pos + offsetForSequence], lengthValue, ASDU, prev_smpCnt, prev_svID, &prev_svID_length);
+                if (ret > 0) {
+                    prev_smpCnt = ret;
+                }
+                else {
+                    prev_smpCnt++;
+                }
+                ASDU++;
+
+                // process any more ASDUs, until max number
+                if (ASDU >= noASDU) {
+//                    svDecodeAPDU_compress(&buf[pos + offsetForNonSequence], len - offsetForNonSequence, ASDU, totalASDUs);
+                    return;
+                }
+
+                pos += offsetForSequence;
+                break;
+            default:
+                break;
+        }
+
+        tag = (unsigned char) &buf[pos]; // assumes only one byte is used
+        lengthFieldSize = getLengthFieldSize((unsigned char) buf[pos + 1]);
+        lengthValue = decodeLength((unsigned char *) &buf[pos + 1]);
+        offsetForSequence = 1 + lengthFieldSize;
+        offsetForNonSequence = 1 + lengthFieldSize + lengthValue;
+    }
 }
 
 void svDecode_compress(unsigned char *buf, int len) {

@@ -1688,10 +1688,20 @@
 <fInfo name="plot_int" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="2">
   <arg num="0" specialize="false">
     <values>
+      <value type="intval"><intval isSigned="true" val="0"/></value>
+      <value type="intval"><intval isSigned="true" val="1"/></value>
+      <value type="intval"><intval isSigned="true" val="2"/></value>
+      <value type="intval"><intval isSigned="true" val="3"/></value>
+      <value type="intval"><intval isSigned="true" val="4"/></value>
+      <value type="intval"><intval isSigned="true" val="5"/></value>
+      <value type="intval"><intval isSigned="true" val="6"/></value>
+      <value type="intval"><intval isSigned="true" val="7"/></value>
+      <value type="intval"><intval isSigned="true" val="8"/></value>
     </values>
   </arg>
   <arg num="1" specialize="false">
     <values>
+      <value type="unknown"/>
     </values>
   </arg>
 </fInfo>

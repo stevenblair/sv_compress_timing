@@ -1,7 +1,7 @@
-#define PRINT_TIMING_RESULTS            1
-#define PLOT_TIMING_SIGNALS             0
-#define PLOT_TIMING_SIGNALS_DETAILED    0
-#define PLOT_TIMING_SIGNALS_FINAL       0
+#define PRINT_TIMING_RESULTS            0
+#define PLOT_TIMING_SIGNALS             1
+#define PLOT_TIMING_SIGNALS_DETAILED    1
+#define PLOT_TIMING_SIGNALS_FINAL       1
 #define PLOT_WAVEFORM                   0
 #define VALIDATE_DECODING               1
 

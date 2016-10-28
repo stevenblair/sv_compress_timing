@@ -1,4 +1,4 @@
-<preCompilationAnalysis file="C:/Users/nau03113/xmos142/module_locks/src/swlock_asm.S">
+<preCompilationAnalysis file="C:/Users/nau03113/sv_compress_timing/module_locks/src/swlock_asm.S">
   <fCall global="true" name="swlock_try_acquire"/>
   <fCall global="true" name="swlock_try_acquire.nstackwords"/>
   <fCall global="true" name="swlock_try_acquire.maxcores"/>

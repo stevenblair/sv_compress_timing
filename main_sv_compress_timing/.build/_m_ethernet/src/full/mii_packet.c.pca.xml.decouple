@@ -1,4 +1,4 @@
-<preCompilationAnalysis file="C:/Users/nau03113/xmos142/module_ethernet/src/full/mii_packet.c">
+<preCompilationAnalysis file="C:/Users/nau03113/sv_compress_timing/module_ethernet/src/full/mii_packet.c">
   <fCall global="true" name="mii_packet_get_length"/>
   <fCall global="true" name="mii_packet_get_length.nstackwords"/>
   <fCall global="true" name="mii_packet_get_length.maxcores"/>

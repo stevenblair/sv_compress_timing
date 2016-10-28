@@ -1,6 +1,6 @@
-<preCompilationAnalysis file="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_tx_client.xc">
-<fDef name="ethernet_choose_hp_cmd" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_tx_client.xc" noreturn="false" doNotSpecialize="true" numParams="2"/>
-<fDef name="ethernet_send_frame_unify" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_tx_client.xc" noreturn="false" doNotSpecialize="false" numParams="6"/>
+<preCompilationAnalysis file="C:/Users/nau03113/sv_compress_timing/module_ethernet/src/full/ethernet_tx_client.xc">
+<fDef name="ethernet_choose_hp_cmd" global="false" unit="C:/Users/nau03113/sv_compress_timing/module_ethernet/src/full/ethernet_tx_client.xc" noreturn="false" doNotSpecialize="true" numParams="2"/>
+<fDef name="ethernet_send_frame_unify" global="false" unit="C:/Users/nau03113/sv_compress_timing/module_ethernet/src/full/ethernet_tx_client.xc" noreturn="false" doNotSpecialize="false" numParams="6"/>
 <fDef name="delay_microseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
 <fDef name="delay_milliseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
 <fDef name="delay_seconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
@@ -64,7 +64,7 @@
     </values>
   </arg>
 </fCall>
-<fCall name="ethernet_choose_hp_cmd" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_tx_client.xc" numArgs="2">
+<fCall name="ethernet_choose_hp_cmd" global="false" unit="C:/Users/nau03113/sv_compress_timing/module_ethernet/src/full/ethernet_tx_client.xc" numArgs="2">
   <arg num="0">
     <values>
       <value type="unknown"/>
@@ -76,7 +76,7 @@
     </values>
   </arg>
 </fCall>
-<fCall name="ethernet_send_frame_unify" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_tx_client.xc" numArgs="6">
+<fCall name="ethernet_send_frame_unify" global="false" unit="C:/Users/nau03113/sv_compress_timing/module_ethernet/src/full/ethernet_tx_client.xc" numArgs="6">
   <arg num="0">
     <passThroughArg param="0" caller="mac_tx_full" global="true"/>
     <values>
@@ -108,7 +108,7 @@
     </values>
   </arg>
 </fCall>
-<fCall name="ethernet_choose_hp_cmd" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_tx_client.xc" numArgs="2">
+<fCall name="ethernet_choose_hp_cmd" global="false" unit="C:/Users/nau03113/sv_compress_timing/module_ethernet/src/full/ethernet_tx_client.xc" numArgs="2">
   <arg num="0">
     <values>
       <value type="unknown"/>
@@ -127,7 +127,7 @@
     </values>
   </arg>
 </fCall>
-<fCall name="ethernet_send_frame_unify" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_tx_client.xc" numArgs="6">
+<fCall name="ethernet_send_frame_unify" global="false" unit="C:/Users/nau03113/sv_compress_timing/module_ethernet/src/full/ethernet_tx_client.xc" numArgs="6">
   <arg num="0">
     <passThroughArg param="0" caller="mac_tx_timed" global="true"/>
     <values>

@@ -1,4 +1,29 @@
 <preCompilationAnalysis file="../src/rapid61850/compress.c">
+  <fCall global="true" name="logicalRightShift"/>
+  <fCall global="true" name="logicalRightShift.nstackwords"/>
+  <fCall global="true" name="logicalRightShift.maxcores"/>
+  <fCall global="true" name="logicalRightShift.maxtimers"/>
+  <fCall global="true" name="logicalRightShift.maxchanends"/>
+  <fCall global="true" name="encode_int32_t"/>
+  <fCall global="true" name="encode_int32_t.nstackwords"/>
+  <fCall global="true" name="encode_int32_t.maxcores"/>
+  <fCall global="true" name="encode_int32_t.maxtimers"/>
+  <fCall global="true" name="encode_int32_t.maxchanends"/>
+  <fCall global="true" name="encode_uint32_t"/>
+  <fCall global="true" name="encode_uint32_t.nstackwords"/>
+  <fCall global="true" name="encode_uint32_t.maxcores"/>
+  <fCall global="true" name="encode_uint32_t.maxtimers"/>
+  <fCall global="true" name="encode_uint32_t.maxchanends"/>
+  <fCall global="true" name="decode_uint32_t"/>
+  <fCall global="true" name="decode_uint32_t.nstackwords"/>
+  <fCall global="true" name="decode_uint32_t.maxcores"/>
+  <fCall global="true" name="decode_uint32_t.maxtimers"/>
+  <fCall global="true" name="decode_uint32_t.maxchanends"/>
+  <fCall global="true" name="decode_int32_t"/>
+  <fCall global="true" name="decode_int32_t.nstackwords"/>
+  <fCall global="true" name="decode_int32_t.maxcores"/>
+  <fCall global="true" name="decode_int32_t.maxtimers"/>
+  <fCall global="true" name="decode_int32_t.maxchanends"/>
   <fCall global="true" name="svASDULength_compress"/>
   <fCall global="true" name="svASDULength_compress.nstackwords"/>
   <fCall global="true" name="strlen.nstackwords"/>
@@ -49,31 +74,6 @@
   <fCall global="true" name="ber_integer_length.maxchanends"/>
   <fCall global="true" name="encodeLength.maxchanends"/>
   <fCall global="true" name="netmemcpy.maxchanends"/>
-  <fCall global="true" name="logicalRightShift"/>
-  <fCall global="true" name="logicalRightShift.nstackwords"/>
-  <fCall global="true" name="logicalRightShift.maxcores"/>
-  <fCall global="true" name="logicalRightShift.maxtimers"/>
-  <fCall global="true" name="logicalRightShift.maxchanends"/>
-  <fCall global="true" name="encode_int32_t"/>
-  <fCall global="true" name="encode_int32_t.nstackwords"/>
-  <fCall global="true" name="encode_int32_t.maxcores"/>
-  <fCall global="true" name="encode_int32_t.maxtimers"/>
-  <fCall global="true" name="encode_int32_t.maxchanends"/>
-  <fCall global="true" name="encode_uint32_t"/>
-  <fCall global="true" name="encode_uint32_t.nstackwords"/>
-  <fCall global="true" name="encode_uint32_t.maxcores"/>
-  <fCall global="true" name="encode_uint32_t.maxtimers"/>
-  <fCall global="true" name="encode_uint32_t.maxchanends"/>
-  <fCall global="true" name="decode_uint32_t"/>
-  <fCall global="true" name="decode_uint32_t.nstackwords"/>
-  <fCall global="true" name="decode_uint32_t.maxcores"/>
-  <fCall global="true" name="decode_uint32_t.maxtimers"/>
-  <fCall global="true" name="decode_uint32_t.maxchanends"/>
-  <fCall global="true" name="decode_int32_t"/>
-  <fCall global="true" name="decode_int32_t.nstackwords"/>
-  <fCall global="true" name="decode_int32_t.maxcores"/>
-  <fCall global="true" name="decode_int32_t.maxtimers"/>
-  <fCall global="true" name="decode_int32_t.maxchanends"/>
   <fCall global="true" name="encode_LE_IED_MUnn_PhsMeas1_compress"/>
   <fCall global="true" name="encode_LE_IED_MUnn_PhsMeas1_compress.nstackwords"/>
   <fCall global="true" name="encode_LE_IED_MUnn_PhsMeas1.nstackwords"/>
@@ -149,20 +149,11 @@
   <fCall global="true" name="svDecodeAPDU_compress.maxcores"/>
   <fCall global="true" name="svDecodeAPDU_compress.maxtimers"/>
   <fCall global="true" name="svDecodeAPDU_compress.maxchanends"/>
-  <fCall global="true" name="svDecodeAPDU_compress_loop"/>
-  <fCall global="true" name="svDecodeAPDU_compress_loop.nstackwords"/>
-  <fCall global="true" name="svDecodeAPDU_compress_loop.maxcores"/>
-  <fCall global="true" name="svDecodeAPDU_compress_loop.maxtimers"/>
-  <fCall global="true" name="svDecodeAPDU_compress_loop.maxchanends"/>
   <fCall global="true" name="svDecode_compress"/>
   <fCall global="true" name="svDecode_compress.nstackwords"/>
   <fCall global="true" name="svDecode_compress.maxcores"/>
   <fCall global="true" name="svDecode_compress.maxtimers"/>
   <fCall global="true" name="svDecode_compress.maxchanends"/>
-  <fCall global="true" name="prev_smpCnt"/>
-  <fCall global="true" name="prev_svID.globound"/>
-  <fCall global="true" name="prev_svID"/>
-  <fCall global="true" name="prev_svID_length"/>
   <fCall global="true" name="strlen"/>
   <fCall global="true" name="getLengthBytes"/>
   <fCall global="true" name="netmemcpy"/>

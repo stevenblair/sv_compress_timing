@@ -1,4 +1,4 @@
-<preCompilationAnalysis file="C:/Users/nau03113/xmos142/module_ethernet/src/full/link_status.c">
+<preCompilationAnalysis file="C:/Users/nau03113/sv_compress_timing/module_ethernet/src/full/link_status.c">
   <fCall global="true" name="ethernet_update_link_status"/>
   <fCall global="true" name="ethernet_update_link_status.nstackwords"/>
   <fCall global="true" name="ethernet_update_link_status.maxcores"/>

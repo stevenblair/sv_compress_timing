@@ -1,4 +1,4 @@
-<preCompilationAnalysis file="C:/Users/nau03113/xmos142/module_ethernet/src/full/mii_wrappers.c">
+<preCompilationAnalysis file="C:/Users/nau03113/sv_compress_timing/module_ethernet/src/full/mii_wrappers.c">
   <fCall global="true" name="init_mii_mem"/>
   <fCall global="true" name="init_mii_mem.nstackwords"/>
   <fCall global="true" name="init_ts_queue.nstackwords"/>

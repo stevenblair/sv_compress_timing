@@ -1,4 +1,4 @@
-<preCompilationAnalysis file="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_rx_suppport.c">
+<preCompilationAnalysis file="C:/Users/nau03113/sv_compress_timing/module_ethernet/src/full/ethernet_rx_suppport.c">
   <fCall global="true" name="mac_rx_send_frame"/>
   <fCall global="true" name="mac_rx_send_frame.nstackwords"/>
   <fCall global="true" name="mac_rx_send_frame0.nstackwords"/>

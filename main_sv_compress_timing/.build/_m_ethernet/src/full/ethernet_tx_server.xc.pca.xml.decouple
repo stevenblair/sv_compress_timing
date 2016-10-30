@@ -1,6 +1,6 @@
-<preCompilationAnalysis file="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_tx_server.xc">
-<fDef name="do_link_check" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_tx_server.xc" noreturn="false" doNotSpecialize="false" numParams="2"/>
-<fDef name="get_packet_from_client" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_tx_server.xc" noreturn="false" doNotSpecialize="false" numParams="6"/>
+<preCompilationAnalysis file="C:/Users/nau03113/sv_compress_timing/module_ethernet/src/full/ethernet_tx_server.xc">
+<fDef name="do_link_check" global="false" unit="C:/Users/nau03113/sv_compress_timing/module_ethernet/src/full/ethernet_tx_server.xc" noreturn="false" doNotSpecialize="false" numParams="2"/>
+<fDef name="get_packet_from_client" global="false" unit="C:/Users/nau03113/sv_compress_timing/module_ethernet/src/full/ethernet_tx_server.xc" noreturn="false" doNotSpecialize="false" numParams="6"/>
 <fDef name="delay_microseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
 <fDef name="delay_milliseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
 <fDef name="delay_seconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
@@ -61,7 +61,7 @@
 </fCall>
 <fCall name="ethernet_update_link_status" global="true" numArgs="2">
   <arg num="0">
-    <passThroughArg param="1" caller="do_link_check" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_tx_server.xc"/>
+    <passThroughArg param="1" caller="do_link_check" global="false" unit="C:/Users/nau03113/sv_compress_timing/module_ethernet/src/full/ethernet_tx_server.xc"/>
     <values>
     </values>
   </arg>
@@ -123,7 +123,7 @@
     </values>
   </arg>
 </fCall>
-<fCall name="get_packet_from_client" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_tx_server.xc" numArgs="6">
+<fCall name="get_packet_from_client" global="false" unit="C:/Users/nau03113/sv_compress_timing/module_ethernet/src/full/ethernet_tx_server.xc" numArgs="6">
   <arg num="0">
     <values>
       <value type="unknown"/>
@@ -239,7 +239,7 @@
     </values>
   </arg>
 </fCall>
-<fCall name="do_link_check" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_tx_server.xc" numArgs="2">
+<fCall name="do_link_check" global="false" unit="C:/Users/nau03113/sv_compress_timing/module_ethernet/src/full/ethernet_tx_server.xc" numArgs="2">
   <arg num="0">
     <values>
       <value type="unknown"/>
@@ -251,7 +251,7 @@
     </values>
   </arg>
 </fCall>
-<fCall name="do_link_check" global="false" unit="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_tx_server.xc" numArgs="2">
+<fCall name="do_link_check" global="false" unit="C:/Users/nau03113/sv_compress_timing/module_ethernet/src/full/ethernet_tx_server.xc" numArgs="2">
   <arg num="0">
     <values>
       <value type="unknown"/>

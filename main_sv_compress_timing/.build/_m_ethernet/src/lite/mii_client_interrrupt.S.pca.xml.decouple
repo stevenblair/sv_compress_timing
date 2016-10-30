@@ -1,4 +1,4 @@
-<preCompilationAnalysis file="C:/Users/nau03113/xmos142/module_ethernet/src/lite/mii_client_interrrupt.S">
+<preCompilationAnalysis file="C:/Users/nau03113/sv_compress_timing/module_ethernet/src/lite/mii_client_interrrupt.S">
   <fCall global="true" name="mii_install_handler.nstackwords"/>
   <fCall global="true" name="mii_install_handler.maxcores"/>
   <fCall global="true" name="mii_install_handler.maxtimers"/>

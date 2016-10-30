@@ -1,4 +1,4 @@
-<preCompilationAnalysis file="C:/Users/nau03113/xmos142/module_ethernet/src/full/ethernet_server.xc">
+<preCompilationAnalysis file="C:/Users/nau03113/sv_compress_timing/module_ethernet/src/full/ethernet_server.xc">
 <fDef name="delay_microseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
 <fDef name="delay_milliseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
 <fDef name="delay_seconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>

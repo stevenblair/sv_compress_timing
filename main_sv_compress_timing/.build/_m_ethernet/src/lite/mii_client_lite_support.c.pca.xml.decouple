@@ -1,4 +1,4 @@
-<preCompilationAnalysis file="C:/Users/nau03113/xmos142/module_ethernet/src/lite/mii_client_lite_support.c">
+<preCompilationAnalysis file="C:/Users/nau03113/sv_compress_timing/module_ethernet/src/lite/mii_client_lite_support.c">
   <fCall global="true" name="mac_set_macaddr_lite"/>
   <fCall global="true" name="mac_set_macaddr_lite.nstackwords"/>
   <fCall global="true" name="mac_set_macaddr_lite.maxcores"/>
